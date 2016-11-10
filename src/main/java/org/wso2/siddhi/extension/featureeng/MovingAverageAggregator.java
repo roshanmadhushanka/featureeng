@@ -84,7 +84,8 @@ public class MovingAverageAggregator extends AttributeAggregator{
     }
 
     private class MovingAverage extends MovingAverageAggregator {
-        ArrayList<Double> data = new ArrayList<Double>();
+        private ArrayList<Double> data = new ArrayList<Double>();
+        private int count = 0;
 
         @Override
         public Attribute.Type getReturnType() {
@@ -93,17 +94,20 @@ public class MovingAverageAggregator extends AttributeAggregator{
 
         @Override
         public Object processAdd(Object o) {
-            return super.processAdd(o);
+
         }
 
         @Override
         public Object processRemove(Object o) {
-            return super.processRemove(o);
+            data.remove(0);
+            return 0;
         }
 
-        @Override
-        public Object reset() {
-            return super.reset();
+        private double calculate(ArrayList<Double> arr){
+            double
+            for(int i=0; i < arr.size(); i++){
+
+            }
         }
     }
 }
