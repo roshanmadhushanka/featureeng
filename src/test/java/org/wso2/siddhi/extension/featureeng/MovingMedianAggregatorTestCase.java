@@ -9,8 +9,7 @@ import org.wso2.siddhi.core.stream.output.StreamCallback;
 import org.wso2.siddhi.core.util.EventPrinter;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
-public class MovingKClosestAverageAggregatorTestCase {
+public class MovingMedianAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
 
@@ -25,7 +24,7 @@ public class MovingKClosestAverageAggregatorTestCase {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
-        String query ="@info(name = 'query1') " + "from inputStream#window.length(5) " + "select featureeng:movkavg(5, 3, tt) as ans insert into outputStream";
+        String query ="@info(name = 'query1') " + "from inputStream#window.length(5) " + "select featureeng:movmed(5, tt) as ans insert into outputStream";
         ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
 
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {
@@ -121,6 +120,19 @@ public class MovingKClosestAverageAggregatorTestCase {
         inputHandler.send(new Object[]{9.17144});
         inputHandler.send(new Object[]{8.19278});
         inputHandler.send(new Object[]{7.49374});
+        inputHandler.send(new Object[]{7.07431});
+        inputHandler.send(new Object[]{10.2899});
+        inputHandler.send(new Object[]{10.982});
+        inputHandler.send(new Object[]{11.4363});
+        inputHandler.send(new Object[]{11.653});
+        inputHandler.send(new Object[]{11.6321});
+        inputHandler.send(new Object[]{10.9959});
+        inputHandler.send(new Object[]{10.3738});
+        inputHandler.send(new Object[]{9.76563});
+        inputHandler.send(new Object[]{9.17144});
+        inputHandler.send(new Object[]{8.19278});
+        inputHandler.send(new Object[]{7.49374});
+        inputHandler.send(new Object[]{7.07431});
 
         Thread.sleep(2000);
 

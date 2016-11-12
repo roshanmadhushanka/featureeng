@@ -5,9 +5,7 @@ import org.wso2.siddhi.core.exception.OperationNotSupportedException;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MovingAverageAggregator extends AttributeAggregator{
     private static Attribute.Type type = Attribute.Type.DOUBLE;
@@ -52,23 +50,34 @@ public class MovingAverageAggregator extends AttributeAggregator{
 
     @Override
     public Object processAdd(Object o) {
-        throw new OperationNotSupportedException("Moving average required (window, data_stream) parameters");
+        return null;
     }
 
     @Override
     public Object processAdd(Object[] objects) {
         window_size = (Integer) objects[0];    //Run length window
-        num_arr.add((Double) objects[1]);      //Append data into array
+
+        // Append data into array
+        if (objects[1] instanceof Integer){
+            num_arr.add((double)(Integer) objects[1]);
+        } else if (objects[1] instanceof Double){
+            num_arr.add((Double) objects[1]);
+        }
 
         if ( count < window_size) {            //Return default value until fill the window
             count++;
             return 0.0;
         }else {                                //If window filled, do the calculation
             double tot = 0.0;
+
+            //Calculate total
             for(double num: num_arr){
                 tot += num;
             }
-            num_arr.remove(0);          //FIFO num_arr
+
+            //Remove first element in the queue
+            num_arr.remove(0);
+
             return tot / window_size;
         }
     }

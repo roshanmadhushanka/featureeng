@@ -5,7 +5,6 @@ import org.wso2.siddhi.core.exception.OperationNotSupportedException;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
-
 import java.util.ArrayList;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -27,7 +26,7 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
 
          //No of parameter check
         if (attributeExpressionExecutors.length != 3){
-            throw new OperationNotSupportedException("2 parameters are required, given "
+            throw new OperationNotSupportedException("3 parameters are required, given "
                     + attributeExpressionExecutors.length + " parameter(s)");
         }
 
@@ -58,17 +57,23 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object processAdd(Object o) {
-        throw new OperationNotSupportedException("Moving k-closest average required (window, k_closest, data_stream) parameters");
+        return null;
     }
 
     @Override
     public Object processAdd(Object[] objects) {
         window_size = (Integer) objects[0];    //Run length window
         k_closest = (Integer) objects[1];      //K number
-        num_arr.add((Double) objects[2]);      //Append data into array
+
+        // Append data into array
+        if (objects[2] instanceof Integer){
+            num_arr.add((double)(Integer) objects[2]);
+        } else if (objects[2] instanceof Double){
+            num_arr.add((Double) objects[2]);
+        }
 
         if (k_closest > window_size){
-            System.out.println("s");
+            throw new OperationNotSupportedException("K values should be less than window size");
         }
 
         if ( count < window_size) {            //Return default value until fill the window
@@ -76,22 +81,29 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
             return 0.0;
         }else {                                //If window filled, do the calculation
             double tot = 0.0;
+
+            //Add numbers in sorted order by absolute difference of the number compared to the last number in window
             SortedMap<Double, Double> sortedMap = new TreeMap<Double, Double>();
             for(int i=0; i<window_size; i++){
                 double key = Math.abs(num_arr.get(i) - num_arr.get(window_size-1));
                 sortedMap.put(key, num_arr.get(i));
             }
 
+            //Convert keys in the sorted map to double
             ArrayList<Double> key_array = new ArrayList<Double>();
             for(double key: sortedMap.keySet()){
                 key_array.add(key);
             }
 
+            //Calculate the total of k closest values
             for(int i=0; i<k_closest; i++){
                 tot += sortedMap.get(key_array.get(i));
             }
 
-            num_arr.remove(0);          //FIFO num_arr
+            //Remove first element in the queue
+            num_arr.remove(0);
+
+            //Calculate the average
             return tot / k_closest;
         }
     }
