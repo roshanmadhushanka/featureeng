@@ -1,2 +1,3 @@
 movavg=org.wso2.siddhi.extension.featureeng.MovingAverageAggregator
+movkavg=org.wso2.siddhi.extension.featureeng.MovingKClosestAverageAggregator
 test=org.wso2.siddhi.extension.featureeng.TestAggregator

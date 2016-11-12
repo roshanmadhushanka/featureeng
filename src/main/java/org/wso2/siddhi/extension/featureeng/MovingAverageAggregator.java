@@ -17,6 +17,12 @@ public class MovingAverageAggregator extends AttributeAggregator{
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
+        /*
+        Input parameters - (window_size, data_stream) [INT, DOUBLE]
+        Input Conditions - NULL
+        Output - Moving average [DOUBLE]
+         */
+
         //No of parameter check
         if (attributeExpressionExecutors.length != 2){
             throw new OperationNotSupportedException("2 parameters are required, given "
@@ -41,7 +47,7 @@ public class MovingAverageAggregator extends AttributeAggregator{
 
     @Override
     public Attribute.Type getReturnType() {
-        return this.type;
+        return type;
     }
 
     @Override
@@ -94,7 +100,7 @@ public class MovingAverageAggregator extends AttributeAggregator{
 
     @Override
     public Object[] currentState() {
-        return new Object[0];
+        return null;
     }
 
     @Override
