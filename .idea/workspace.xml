@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa72f6b6-81ae-453d-ab33-87893dabf243" name="Default" comment="MovingKClosestAverageAggregator">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregatorTestCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/featureeng.siddhiext" afterPath="$PROJECT_DIR$/src/main/resources/featureeng.siddhiext" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/featureeng.siddhiext" afterPath="$PROJECT_DIR$/target/classes/featureeng.siddhiext" />
     </list>
     <ignored path="featureeng.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,21 +78,22 @@
       <file leaf-file-name="MovingKClosestAverageAggregator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+            <state relative-caret-position="511">
+              <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2205#2206#0" expanded="true" />
                 <element signature="e#2232#2233#0" expanded="true" />
                 <element signature="e#3089#3105#0" expanded="true" />
-                <element signature="e#3685#3686#0" expanded="true" />
-                <element signature="e#3712#3713#0" expanded="true" />
+                <element signature="e#3361#3369#0" expanded="true" />
+                <element signature="e#3752#3753#0" expanded="true" />
                 <element signature="e#3779#3780#0" expanded="true" />
-                <element signature="e#3806#3807#0" expanded="true" />
-                <element signature="e#3849#3850#0" expanded="true" />
-                <element signature="e#3876#3877#0" expanded="true" />
-                <element signature="e#4023#4024#0" expanded="true" />
-                <element signature="e#4059#4060#0" expanded="true" />
+                <element signature="e#3846#3847#0" expanded="true" />
+                <element signature="e#3873#3874#0" expanded="true" />
+                <element signature="e#3916#3917#0" expanded="true" />
+                <element signature="e#3943#3944#0" expanded="true" />
+                <element signature="e#4090#4091#0" expanded="true" />
+                <element signature="e#4126#4127#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,9 +102,11 @@
       <file leaf-file-name="MovingKClosestAverageAggregatorTestCase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregatorTestCase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="405">
+              <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -740,7 +738,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478917135386</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="MovingKClosestAverageAggregator">
+      <created>1478923397309</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1478923397309</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -756,17 +761,17 @@
     <history-entry file="MovingKClosestAverageAggregatorTestCase - 2016.11.12 at 09h 27m 35s.xml">
       <configuration name="MovingKClosestAverageAggregatorTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAggregatorTestCase - 2016.11.12 at 07h 16m 55s.xml">
-      <configuration name="TestAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="MovingKClosestAverageAggregatorTestCase - 2016.11.12 at 09h 35m 13s.xml">
+      <configuration name="MovingKClosestAverageAggregatorTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAggregatorTestCase - 2016.11.12 at 07h 17m 06s.xml">
-      <configuration name="TestAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="MovingKClosestAverageAggregatorTestCase - 2016.11.12 at 09h 36m 02s.xml">
+      <configuration name="MovingKClosestAverageAggregatorTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAggregatorTestCase - 2016.11.12 at 07h 17m 17s.xml">
-      <configuration name="TestAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="MovingKClosestAverageAggregatorTestCase - 2016.11.12 at 16h 07m 09s.xml">
+      <configuration name="MovingKClosestAverageAggregatorTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestAggregatorTestCase - 2016.11.12 at 07h 18m 07s.xml">
-      <configuration name="TestAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="MovingKClosestAverageAggregatorTestCase - 2016.11.12 at 16h 14m 44s.xml">
+      <configuration name="MovingKClosestAverageAggregatorTestCase" configurationId="JUnit" />
     </history-entry>
     <history-entry file="TestAggregatorTestCase - 2016.11.12 at 07h 19m 58s.xml">
       <configuration name="TestAggregatorTestCase" configurationId="JUnit" />
@@ -782,13 +787,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -893,14 +898,15 @@
             <element signature="e#2205#2206#0" expanded="true" />
             <element signature="e#2232#2233#0" expanded="true" />
             <element signature="e#3089#3105#0" expanded="true" />
-            <element signature="e#3685#3686#0" expanded="true" />
-            <element signature="e#3712#3713#0" expanded="true" />
+            <element signature="e#3361#3369#0" expanded="true" />
+            <element signature="e#3752#3753#0" expanded="true" />
             <element signature="e#3779#3780#0" expanded="true" />
-            <element signature="e#3806#3807#0" expanded="true" />
-            <element signature="e#3849#3850#0" expanded="true" />
-            <element signature="e#3876#3877#0" expanded="true" />
-            <element signature="e#4023#4024#0" expanded="true" />
-            <element signature="e#4059#4060#0" expanded="true" />
+            <element signature="e#3846#3847#0" expanded="true" />
+            <element signature="e#3873#3874#0" expanded="true" />
+            <element signature="e#3916#3917#0" expanded="true" />
+            <element signature="e#3943#3944#0" expanded="true" />
+            <element signature="e#4090#4091#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1178,29 +1184,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregatorTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="405">
+          <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+        <state relative-caret-position="511">
+          <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2205#2206#0" expanded="true" />
             <element signature="e#2232#2233#0" expanded="true" />
             <element signature="e#3089#3105#0" expanded="true" />
-            <element signature="e#3685#3686#0" expanded="true" />
-            <element signature="e#3712#3713#0" expanded="true" />
+            <element signature="e#3361#3369#0" expanded="true" />
+            <element signature="e#3752#3753#0" expanded="true" />
             <element signature="e#3779#3780#0" expanded="true" />
-            <element signature="e#3806#3807#0" expanded="true" />
-            <element signature="e#3849#3850#0" expanded="true" />
-            <element signature="e#3876#3877#0" expanded="true" />
-            <element signature="e#4023#4024#0" expanded="true" />
-            <element signature="e#4059#4060#0" expanded="true" />
+            <element signature="e#3846#3847#0" expanded="true" />
+            <element signature="e#3873#3874#0" expanded="true" />
+            <element signature="e#3916#3917#0" expanded="true" />
+            <element signature="e#3943#3944#0" expanded="true" />
+            <element signature="e#4090#4091#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
           </folding>
         </state>
       </provider>

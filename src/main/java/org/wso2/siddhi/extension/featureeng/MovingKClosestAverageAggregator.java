@@ -82,13 +82,15 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
                 sortedMap.put(key, num_arr.get(i));
             }
 
-            Double[] keyArray = (Double[]) sortedMap.keySet().toArray();
-            int i=0;
-            while(i < k_closest){
-                tot += sortedMap.get(keyArray[i]);
-
-                i++;
+            ArrayList<Double> key_array = new ArrayList<Double>();
+            for(double key: sortedMap.keySet()){
+                key_array.add(key);
             }
+
+            for(int i=0; i<k_closest; i++){
+                tot += sortedMap.get(key_array.get(i));
+            }
+
             num_arr.remove(0);          //FIFO num_arr
             return tot / k_closest;
         }
