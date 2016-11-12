@@ -1,1 +1,2 @@
-movavg=org.wso2.siddhi.extension.featureeng.TestAggregator
+movavg=org.wso2.siddhi.extension.featureeng.MovingAverageAggregator
+test=org.wso2.siddhi.extension.featureeng.TestAggregator

@@ -62,6 +62,7 @@ public class TestAggregator extends AttributeAggregator {
 
     @Override
     public Object processRemove(Object o) {
+        num_arr.remove(0);
         return null;
     }
 
