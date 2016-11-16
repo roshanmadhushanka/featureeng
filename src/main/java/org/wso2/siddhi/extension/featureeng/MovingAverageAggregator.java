@@ -8,9 +8,10 @@ import org.wso2.siddhi.query.api.definition.Attribute;
 
 public class MovingAverageAggregator extends AttributeAggregator{
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private double tot;
-    private double avg;
-    private int count;
+    private double tot;     //Window total
+    private double avg;     //Window average
+    private double val;
+    private int count;      //Window element counter
     private int window_size;
 
     @Override
@@ -40,6 +41,7 @@ public class MovingAverageAggregator extends AttributeAggregator{
         //Initialize variables
         this.tot = 0.0;
         this.avg = 0.0;
+        this.val = 0.0;
         this.count = 1;
         this.window_size = 0;
     }
@@ -57,12 +59,13 @@ public class MovingAverageAggregator extends AttributeAggregator{
     @Override
     public Object processAdd(Object[] objects) {
         window_size = (Integer) objects[0];    //Run length window
-        tot += (Double) objects[1];
+        val += (Double) objects[1];
 
+        tot += val;
         if ( count < window_size) {            //Return default value until fill the window
             count++;
         }else {                                //If window filled, do the calculation
-            avg = tot / window_size;
+            avg = calculate();
         }
         return avg;
     }
@@ -101,5 +104,10 @@ public class MovingAverageAggregator extends AttributeAggregator{
     @Override
     public void restoreState(Object[] objects) {
 
+    }
+
+    private double calculate(){
+        avg = tot / window_size;
+        return avg;
     }
 }

@@ -11,11 +11,11 @@ import java.util.TreeMap;
 
 public class MovingKClosestAverageAggregator extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private ArrayList<Double> num_arr;
-    private double avg;
-    private int count;
+    private ArrayList<Double> num_arr; //Keep window elements
+    private double avg;     //Window average
+    private int count;      //Window element counter
     private int window_size;
-    private int k_closest;
+    private int k_closest;  //Number of closest values to the last occurence
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
@@ -75,31 +75,7 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
         if ( count < window_size) {            //Return default value until fill the window
             count++;
         }else {                                //If window filled, do the calculation
-            double tot = 0.0;
-
-            //Add numbers in sorted order by absolute difference of the number compared to the last number in window
-            SortedMap<Double, Double> sortedMap = new TreeMap<Double, Double>();
-            for(int i=0; i<window_size; i++){
-                double key = Math.abs(num_arr.get(i) - num_arr.get(window_size-1));
-                sortedMap.put(key, num_arr.get(i));
-            }
-
-            //Convert keys in the sorted map to double
-            ArrayList<Double> key_array = new ArrayList<Double>();
-            for(double key: sortedMap.keySet()){
-                key_array.add(key);
-            }
-
-            //Calculate the total of k closest values
-            for(int i=0; i<k_closest; i++){
-                tot += sortedMap.get(key_array.get(i));
-            }
-
-            //Remove first element in the queue
-            num_arr.remove(0);
-
-            //Calculate the average
-            avg = tot / k_closest;
+            avg = calculate();
         }
         return avg;
     }
@@ -111,6 +87,8 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object processRemove(Object[] objects) {
+        //Remove first element in the queue
+        num_arr.remove(0);
         return null;
     }
 
@@ -137,5 +115,31 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
     @Override
     public void restoreState(Object[] objects) {
 
+    }
+
+    public double calculate(){
+        double tot = 0.0;
+
+        //Add numbers in sorted order by absolute difference of the number compared to the last number in window
+        SortedMap<Double, Double> sortedMap = new TreeMap<Double, Double>();
+        for(int i=0; i<window_size; i++){
+            double key = Math.abs(num_arr.get(i) - num_arr.get(window_size-1));
+            sortedMap.put(key, num_arr.get(i));
+        }
+
+        //Convert keys in the sorted map to double
+        ArrayList<Double> key_array = new ArrayList<Double>();
+        for(double key: sortedMap.keySet()){
+            key_array.add(key);
+        }
+
+        //Calculate the total of k closest values
+        for(int i=0; i<k_closest; i++){
+            tot += sortedMap.get(key_array.get(i));
+        }
+
+        //Calculate the average
+        avg = tot / k_closest;
+        return avg;
     }
 }

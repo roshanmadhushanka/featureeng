@@ -10,9 +10,9 @@ import java.util.Collections;
 
 public class MovingMedianAggregator extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private ArrayList<Double> num_arr;
-    private double median;
-    private int count;
+    private ArrayList<Double> num_arr; //Keep window elements
+    private double median;  //Window median
+    private int count;      //Window element counter
     private int window_size;
 
     @Override
@@ -64,22 +64,7 @@ public class MovingMedianAggregator extends AttributeAggregator {
         if ( count < window_size) {            //Return default value until fill the window
             count++;
         }else {                                //If window filled, do the calculation
-            //Create temp list, otherwise list sort will change the original order of the data
-            ArrayList<Double> tmp = new ArrayList<Double>(num_arr);
-
-            //Sort values
-            Collections.sort(tmp);
-
-            //Remove first element in the queue
-            num_arr.remove(0);
-
-            //Get median value
-            if(window_size % 2 == 0){
-                int index = window_size / 2;
-                median = (tmp.get(index) + tmp.get(index-1)) / 2;
-            }else{
-                median =  tmp.get(window_size / 2);
-            }
+            median = calculate();
         }
         return median;
     }
@@ -91,6 +76,8 @@ public class MovingMedianAggregator extends AttributeAggregator {
 
     @Override
     public Object processRemove(Object[] objects) {
+        //Remove first element in the queue
+        num_arr.remove(0);
         return null;
     }
 
@@ -117,5 +104,22 @@ public class MovingMedianAggregator extends AttributeAggregator {
     @Override
     public void restoreState(Object[] objects) {
 
+    }
+
+    private double calculate(){
+        //Create temp list, otherwise list sort will change the original order of the data
+        ArrayList<Double> tmp = new ArrayList<Double>(num_arr);
+
+        //Sort values
+        Collections.sort(tmp);
+
+        //Get median value
+        if(window_size % 2 == 0){
+            int index = window_size / 2;
+            median = (tmp.get(index) + tmp.get(index-1)) / 2;
+        }else{
+            median =  tmp.get(window_size / 2);
+        }
+        return median;
     }
 }

@@ -70,7 +70,7 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
         if ( count < window_size) {            //Return default value until fill the window
             count++;
         }else {                                //If window filled, do the calculation
-            avg = tot / window_size;
+            std = calculate();
         }
         return std;
     }
@@ -83,6 +83,7 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
     @Override
     public Object processRemove(Object[] objects) {
         tot -= (Double) objects[1];
+        num_arr.remove(0);
         return null;
     }
 
@@ -109,5 +110,16 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
     @Override
     public void restoreState(Object[] objects) {
 
+    }
+
+    private double calculate(){
+        avg = tot / window_size;
+        std = 0.0;
+        for(double num: num_arr){
+            std += Math.pow(num, 2.0);
+        }
+        std = (std/window_size) - Math.pow(avg, 2.0);
+        std = Math.sqrt(std);
+        return std;
     }
 }

@@ -5,23 +5,22 @@ import org.wso2.siddhi.core.exception.OperationNotSupportedException;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
-import java.util.ArrayList;
-import java.util.Collections;
 
-public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
+public class MovingThresholdAverageAggregator extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private ArrayList<Double> num_arr; //Keep window elements
-    private double avg;     //Window average
-    private int count;      //Window element counter
+    private double tot;         //Window total
+    private double avg;         //Window average
+    private double threshold;   //Threshold value to the original value and last occurence. [Only accept if the difference is under threshold]
+    private double val;         //Value received from the stream
+    private int count;          //Window element counter
     private int window_size;
-    private int limit;      //Number of removing items from each side [front, end]
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
-         /*
-        Input parameters - (window_size, limit, data_stream) [INT, INT, DOUBLE]
+        /*
+        Input parameters - (window_size, threshold, data_stream) [INT, DOUBLE, DOUBLE]
         Input Conditions - NULL
-        Output - Moving median centered average [DOUBLE]
+        Output - Moving threshold average [DOUBLE]
          */
 
         //No of parameter check
@@ -35,25 +34,27 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
             //Window size
             throw new IllegalArgumentException("First parameter should be the window size (type.INT)");
         }
-        if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.INT){
-            //K closest value
-            throw new IllegalArgumentException("Number of closest values should be in type.INT");
+        if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.DOUBLE){
+            //Threshold value
+            throw new IllegalArgumentException("Threshold value should be in type.DOUBLE");
         }
         if (attributeExpressionExecutors[2].getReturnType() != Attribute.Type.DOUBLE){
-            //K closest value
+            //Stream data
             throw new IllegalArgumentException("Stream data should be in type.DOUBLE");
         }
 
         //Initialize variables
-        this.num_arr = new ArrayList<Double>();
+        this.tot = 0.0;
         this.avg = 0.0;
+        this.threshold = 0.0;
+        this.val = 0.0;
         this.count = 1;
         this.window_size = 0;
     }
 
     @Override
     public Attribute.Type getReturnType() {
-        return null;
+        return type;
     }
 
     @Override
@@ -64,17 +65,14 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
     @Override
     public Object processAdd(Object[] objects) {
         window_size = (Integer) objects[0];    //Run length window
-        limit = (Integer) objects[1];          //Limit
-        num_arr.add((Double) objects[2]);     //Append window array
+        threshold = (Double) objects[1];
+        val = (Double) objects[2];
 
-        if (2*limit > window_size){
-            throw new OperationNotSupportedException("limit should be twice less than window size");
-        }
-
+        tot += val;
         if ( count < window_size) {            //Return default value until fill the window
             count++;
         }else {                                //If window filled, do the calculation
-            avg = calculate();
+            avg = caculate();
         }
         return avg;
     }
@@ -86,8 +84,7 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object processRemove(Object[] objects) {
-        //Remove first element in the queue
-        num_arr.remove(0);
+        tot -= (Double) objects[2];
         return null;
     }
 
@@ -108,7 +105,7 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[0];
+        return null;
     }
 
     @Override
@@ -116,28 +113,11 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
 
     }
 
-    private double calculate(){
-        double tot = 0.0;
-
-        //Create temp list, otherwise list sort will change the original order of the data
-        ArrayList<Double> tmp = new ArrayList<Double>(num_arr);
-
-        //Sort values
-        Collections.sort(tmp);
-
-        //Remove corner values
-        for(int i=0; i<limit; i++){
-            tmp.remove(0);
-            tmp.remove(tmp.size()-1);
+    private double caculate(){
+        avg = tot / window_size;
+        if (Math.abs(val - avg) > threshold){
+            avg = val;
         }
-
-        //Calculate total
-        for (Double aTmp : tmp) {
-            tot += aTmp;
-        }
-
-        avg = tot / tmp.size();
-
         return avg;
     }
 }

@@ -1,16 +1,18 @@
 package org.wso2.siddhi.extension.featureeng;
 
 import org.junit.Before;
-import org.junit.Test;
 import org.wso2.siddhi.core.ExecutionPlanRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
 import org.wso2.siddhi.core.stream.input.InputHandler;
 import org.wso2.siddhi.core.stream.output.StreamCallback;
 import org.wso2.siddhi.core.util.EventPrinter;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
-
-public class MovingKClosestAverageAggregatorTestCase {
+/**
+ * Created by wso2123 on 11/16/16.
+ */
+public class MovingStandardDeviationAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
 
@@ -20,12 +22,12 @@ public class MovingKClosestAverageAggregatorTestCase {
         eventArrived = false;
     }
 
-    @Test
+    @org.junit.Test
     public void testSplitFunctionExtension() throws InterruptedException {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
-        String query ="@info(name = 'query1') " + "from inputStream#window.length(5) " + "select featureeng:movkavg(5, 3, tt) as ans insert into outputStream";
+        String query = "@info(name = 'query1') " + "from inputStream#window.length(5) " + "select featureeng:movstd(5, tt) as ans insert into outputStream";
         ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
 
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {
