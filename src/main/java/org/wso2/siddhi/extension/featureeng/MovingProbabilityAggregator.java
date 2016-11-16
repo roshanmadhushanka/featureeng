@@ -142,6 +142,21 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
         }
 
         binSize = (max - min) / nbins;
+        int[] result = new int[nbins];
+        int binIndex;
+        for(double num: num_arr){
+            binIndex = (int)((num - min)/binSize);
+            if(binIndex < 0)
+                result[0] += 1;
+            else if(binIndex >= nbins)
+                result[nbins-1] += 1;
+            else
+                result[binIndex] += 1;
+        }
+
+        binIndex = (int)((val - min)/binSize);
+        prob = (double)result[binIndex] / window_size;
+
         return prob;
     }
 }
