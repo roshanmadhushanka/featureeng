@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1479267867314
+Build-Jdk: 1.8.0_101
+Built-By: wso2123
+Bundle-ManifestVersion: 2
+Bundle-Name: featureeng
+Bundle-SymbolicName: featureeng
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+DynamicImport-Package: *
+Export-Package: org.wso2.siddhi.extension.featureeng;uses:="org.wso2.sid
+ dhi.core.executor,org.wso2.siddhi.core.exception,org.wso2.siddhi.core.q
+ uery.selector.attribute.aggregator,org.wso2.siddhi.query.api.definition
+ ,org.wso2.siddhi.core.config";version="1.0.0.SNAPSHOT"
+Import-Package: org.wso2.siddhi.core.config;version="[3.1,4)";resolution
+ :=optional,org.wso2.siddhi.core.exception;version="[3.1,4)";resolution:
+ =optional,org.wso2.siddhi.core.executor;version="[3.1,4)";resolution:=o
+ ptional,org.wso2.siddhi.core.query.selector.attribute.aggregator;versio
+ n="[3.1,4)";resolution:=optional,org.wso2.siddhi.query.api.definition;v
+ ersion="[3.1,4)";resolution:=optional
+Tool: Bnd-1.50.0

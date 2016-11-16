@@ -24,7 +24,7 @@ public class MovingMedianAggregatorTestCase {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
-        String query ="@info(name = 'query1') " + "from inputStream#window.length(5) " + "select featureeng:movmed(5, tt) as ans insert into outputStream";
+        String query ="@info(name = 'query1') " + "from inputStream#window.length(6) " + "select featureeng:movmed(6, tt) as ans insert into outputStream";
         ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
 
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {

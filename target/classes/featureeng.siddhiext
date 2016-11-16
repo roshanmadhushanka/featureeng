@@ -1,5 +1,5 @@
 movavg=org.wso2.siddhi.extension.featureeng.MovingAverageAggregator
 movkavg=org.wso2.siddhi.extension.featureeng.MovingKClosestAverageAggregator
-movmedavg=org.wso2.siddhi.extension.featureeng.MovingMedianCenteredAverageAggregator
+movmcavg=org.wso2.siddhi.extension.featureeng.MovingMedianCenteredAverageAggregator
 movmed=org.wso2.siddhi.extension.featureeng.MovingMedianAggregator
-test=org.wso2.siddhi.extension.featureeng.TestAggregator
+test=org.wso2.siddhi.extension.featureeng.Test

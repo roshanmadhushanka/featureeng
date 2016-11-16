@@ -12,6 +12,7 @@ import java.util.TreeMap;
 public class MovingKClosestAverageAggregator extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
     private ArrayList<Double> num_arr;
+    private double avg;
     private int count;
     private int window_size;
     private int k_closest;
@@ -46,6 +47,7 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
 
         //Initialize variables
         this.num_arr = new ArrayList<Double>();
+        this.avg = 0.0;
         this.count = 1;
         this.window_size = 0;
     }
@@ -64,13 +66,7 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
     public Object processAdd(Object[] objects) {
         window_size = (Integer) objects[0];    //Run length window
         k_closest = (Integer) objects[1];      //K number
-
-        // Append data into array
-        if (objects[2] instanceof Integer){
-            num_arr.add((double)(Integer) objects[2]);
-        } else if (objects[2] instanceof Double){
-            num_arr.add((Double) objects[2]);
-        }
+        num_arr.add((Double) objects[2]);      //Append window array
 
         if (k_closest > window_size){
             throw new OperationNotSupportedException("K values should be less than window size");
@@ -78,7 +74,6 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
 
         if ( count < window_size) {            //Return default value until fill the window
             count++;
-            return 0.0;
         }else {                                //If window filled, do the calculation
             double tot = 0.0;
 
@@ -104,8 +99,9 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
             num_arr.remove(0);
 
             //Calculate the average
-            return tot / k_closest;
+            avg = tot / k_closest;
         }
+        return avg;
     }
 
     @Override

@@ -5,14 +5,13 @@ import org.wso2.siddhi.core.exception.OperationNotSupportedException;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class MovingMedianAggregator extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
     private ArrayList<Double> num_arr;
+    private double median;
     private int count;
     private int window_size;
 
@@ -42,6 +41,7 @@ public class MovingMedianAggregator extends AttributeAggregator {
 
         //Initialize variables
         this.num_arr = new ArrayList<Double>();
+        this.median = 0.0;
         this.count = 1;
         this.window_size = 0;
     }
@@ -59,17 +59,10 @@ public class MovingMedianAggregator extends AttributeAggregator {
     @Override
     public Object processAdd(Object[] objects) {
         window_size = (Integer) objects[0];    //Run length window
-
-        // Append data into array
-        if (objects[1] instanceof Integer){
-            num_arr.add((double)(Integer) objects[1]);
-        } else if (objects[1] instanceof Double){
-            num_arr.add((Double) objects[1]);
-        }
+        num_arr.add((Double) objects[1]);      //Append window array
 
         if ( count < window_size) {            //Return default value until fill the window
             count++;
-            return 0.0;
         }else {                                //If window filled, do the calculation
             //Create temp list, otherwise list sort will change the original order of the data
             ArrayList<Double> tmp = new ArrayList<Double>(num_arr);
@@ -83,11 +76,12 @@ public class MovingMedianAggregator extends AttributeAggregator {
             //Get median value
             if(window_size % 2 == 0){
                 int index = window_size / 2;
-                return (tmp.get(index) + tmp.get(index-1)) / 2;
+                median = (tmp.get(index) + tmp.get(index-1)) / 2;
             }else{
-                return tmp.get(window_size / 2);
+                median =  tmp.get(window_size / 2);
             }
         }
+        return median;
     }
 
     @Override
