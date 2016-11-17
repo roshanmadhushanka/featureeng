@@ -13,7 +13,7 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
     private ArrayList<Double> num_arr; //Keep window elements
     private double avg;     //Window average
     private int count;      //Window element counter
-    private int window_size;
+    private int window_size;//Run length window
     private int limit;      //Number of removing items from each side [front, end]
 
     @Override

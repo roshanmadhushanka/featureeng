@@ -13,7 +13,7 @@ public class MovingMedianAggregator extends AttributeAggregator {
     private ArrayList<Double> num_arr; //Keep window elements
     private double median;  //Window median
     private int count;      //Window element counter
-    private int window_size;
+    private int window_size;//Run length window
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {

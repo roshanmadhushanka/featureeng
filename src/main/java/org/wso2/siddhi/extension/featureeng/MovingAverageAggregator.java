@@ -10,7 +10,7 @@ public class MovingAverageAggregator extends AttributeAggregator{
     private static Attribute.Type type = Attribute.Type.DOUBLE;
     private double tot;     //Window total
     private double avg;     //Window average
-    private double val;
+    private double val;     //Current value
     private int count;      //Window element counter
     private int window_size;
 

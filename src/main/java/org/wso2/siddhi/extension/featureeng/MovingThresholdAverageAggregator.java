@@ -13,7 +13,7 @@ public class MovingThresholdAverageAggregator extends AttributeAggregator {
     private double threshold;   //Threshold value to the original value and last occurence. [Only accept if the difference is under threshold]
     private double val;         //Value received from the stream
     private int count;          //Window element counter
-    private int window_size;
+    private int window_size;    //Run length window
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {

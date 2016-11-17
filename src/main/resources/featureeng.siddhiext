@@ -5,5 +5,6 @@ movtavg=org.wso2.siddhi.extension.featureeng.MovingThresholdAverageAggregator
 movmed=org.wso2.siddhi.extension.featureeng.MovingMedianAggregator
 movstd=org.wso2.siddhi.extension.featureeng.MovingStandardDeviationAggregator
 movprob=org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregator
+moventr=org.wso2.siddhi.extension.featureeng.MovingEntropyAggregator
 
 test=org.wso2.siddhi.extension.featureeng.Test

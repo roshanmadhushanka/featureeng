@@ -9,7 +9,7 @@ import org.wso2.siddhi.core.util.EventPrinter;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class MovingProbabilityAggregatorTestCase {
+public class MovingEntropyAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
 
@@ -24,7 +24,7 @@ public class MovingProbabilityAggregatorTestCase {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
-        String query = "@info(name = 'query1') " + "from inputStream#window.length(10) " + "select featureeng:movprob(10, 5, tt) as ans insert into outputStream";
+        String query = "@info(name = 'query1') " + "from inputStream#window.length(10) " + "select featureeng:moventr(10, 5, tt) as ans insert into outputStream";
         ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
 
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {

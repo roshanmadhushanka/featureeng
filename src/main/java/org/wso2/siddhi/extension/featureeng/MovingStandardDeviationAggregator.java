@@ -14,7 +14,7 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
     private double avg;         //Window average
     private double std;         //Window standard deviation
     private int count;          //Window element counter
-    private int window_size;
+    private int window_size;    //Run legnth window
     private ArrayList<Double> num_arr; //Keep window elements
 
     @Override
