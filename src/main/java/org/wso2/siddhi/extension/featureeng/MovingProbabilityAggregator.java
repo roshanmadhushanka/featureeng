@@ -24,7 +24,7 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
          /*
-        Input parameters - (window_size, limit, data_stream) [INT, INT, DOUBLE]
+        Input parameters - (window_size, number of bins, data_stream) [INT, INT, DOUBLE]
         Input Conditions - NULL
         Output - Moving probability [DOUBLE]
          */

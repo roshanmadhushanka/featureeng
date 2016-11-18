@@ -10,20 +10,20 @@ import java.util.Arrays;
 
 public class MovingEntropyAggregator extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private ArrayList<Double> num_arr; //Keep window elements
-    private double entr;     //Window entropy sum
-    private int count;       //Window element counter
-    private int window_size; //Run length window
-    private int nbins;       //Number of discrete levels
-    private double val;      //Current value
-    private double binSize;  //Gap between consecutive discrete levels
-    private double min;      //Local minimum for given window
-    private double max;      //Local maximum for given window
+    private ArrayList<Double> num_arr;  //Keep window elements
+    private double entr;                //Window entropy sum
+    private int count;                  //Window element counter
+    private int window_size;            //Run length window
+    private int nbins;                  //Number of discrete levels
+    private double val;                 //Current value
+    private double binSize;             //Gap between consecutive discrete levels
+    private double min;                 //Local minimum for given window
+    private double max;                 //Local maximum for given window
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
          /*
-        Input parameters - (window_size, limit, data_stream) [INT, INT, DOUBLE]
+        Input parameters - (window_size, number of bins, data_stream) [INT, INT, DOUBLE]
         Input Conditions - NULL
         Output - Moving entropy [DOUBLE]
          */
@@ -62,7 +62,7 @@ public class MovingEntropyAggregator extends AttributeAggregator {
 
     @Override
     public Attribute.Type getReturnType() {
-        return null;
+        return type;
     }
 
     @Override

@@ -1,5 +1,9 @@
+/home/wso2123/Documents/MyProjects/featureeng/src/test/java/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregatorTestCase.java
 /home/wso2123/Documents/MyProjects/featureeng/src/test/java/org/wso2/siddhi/extension/featureeng/MovingMedianAggregatorTestCase.java
 /home/wso2123/Documents/MyProjects/featureeng/src/test/java/org/wso2/siddhi/extension/featureeng/TestTestCase.java
 /home/wso2123/Documents/MyProjects/featureeng/src/test/java/org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregatorTestCase.java
+/home/wso2123/Documents/MyProjects/featureeng/src/test/java/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregatorTestCase.java
+/home/wso2123/Documents/MyProjects/featureeng/src/test/java/org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregatorTestCase.java
 /home/wso2123/Documents/MyProjects/featureeng/src/test/java/org/wso2/siddhi/extension/featureeng/MovingAverageAggregatorTestCase.java
 /home/wso2123/Documents/MyProjects/featureeng/src/test/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregatorTestCase.java
+/home/wso2123/Documents/MyProjects/featureeng/src/test/java/org/wso2/siddhi/extension/featureeng/MovingProbabilityAggregatorTestCase.java

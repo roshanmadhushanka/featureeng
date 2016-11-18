@@ -20,7 +20,7 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
          /*
-        Input parameters - (window_size, k_closest, data_stream) [INT, INT, DOUBLE]
+        Input parameters - (window_size, k number of closest values to the last occurrence, data_stream) [INT, INT, DOUBLE]
         Input Conditions - k_closest < window_size
         Output - Moving k closest average [DOUBLE]
          */
@@ -117,7 +117,7 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
 
     }
 
-    public double calculate(){
+    private double calculate(){
         double tot = 0.0;
 
         //Add numbers in sorted order by absolute difference of the number compared to the last number in window

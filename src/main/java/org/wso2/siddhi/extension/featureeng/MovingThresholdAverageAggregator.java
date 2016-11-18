@@ -72,7 +72,7 @@ public class MovingThresholdAverageAggregator extends AttributeAggregator {
         if ( count < window_size) {            //Return default value until fill the window
             count++;
         }else {                                //If window filled, do the calculation
-            avg = caculate();
+            avg = calculate();
         }
         return avg;
     }
@@ -113,7 +113,7 @@ public class MovingThresholdAverageAggregator extends AttributeAggregator {
 
     }
 
-    private double caculate(){
+    private double calculate(){
         avg = tot / window_size;
         if (Math.abs(val - avg) > threshold){
             avg = val;

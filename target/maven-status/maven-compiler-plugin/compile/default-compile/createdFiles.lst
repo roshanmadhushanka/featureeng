@@ -1,6 +1,9 @@
 org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregator.class
+org/wso2/siddhi/extension/featureeng/MovingEntropyAggregator.class
 org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregator.class
+org/wso2/siddhi/extension/featureeng/MovingProbabilityAggregator.class
 org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregator.class
 org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.class
+org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregator.class
 org/wso2/siddhi/extension/featureeng/MovingMedianAggregator.class
 org/wso2/siddhi/extension/featureeng/Test.class
