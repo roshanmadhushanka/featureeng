@@ -6,4 +6,3 @@ org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregator.class
 org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.class
 org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregator.class
 org/wso2/siddhi/extension/featureeng/MovingMedianAggregator.class
-org/wso2/siddhi/extension/featureeng/Test.class

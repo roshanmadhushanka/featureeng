@@ -12,7 +12,25 @@ public class MovingMedianCenteredAverageAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
     private double[] testVal = {
-
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.88133333,
+            6.768,
+            7.325,
+            8.05833333,
+            6.88533333,
+            6.88533333,
+            6.02366667,
+            5.64633333,
+            5.60233333,
+            5.55166667,
+            5.67866667,
+            6.031,
+            6.105,
+            6.44566667,
+            6.77066667
     };
 
     @Before

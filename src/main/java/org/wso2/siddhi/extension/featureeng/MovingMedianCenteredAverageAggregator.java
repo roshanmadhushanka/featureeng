@@ -29,12 +29,12 @@ import java.util.Collections;
 import java.util.List;
 
 /*
-* featureeng:movmcavg(window_size, limit, data_stream); [INT, INT, DOUBLE]
-* Input Condition(s): 2 * limit < window_size
+* featureeng:movmcavg(window_size, boundary, data_stream); [INT, INT, DOUBLE]
+* Input Condition(s): 2 * boundary < window_size
 * Return Type(s): DOUBLE
 *
 * Calculate moving median centered average
-* Moving Median Centered average = AVERAGE(REMOVE_#LIMIT_FROM_BOTH_ENDS(SORT(WINDOW_ELEMENTS)))
+* Moving Median Centered average = AVERAGE(REMOVE_BOUNDRY_FROM_BOTH_ENDS(SORT(WINDOW_ELEMENTS)))
 */
 
 public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
@@ -43,7 +43,7 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
     private double avg;             //Window average
     private int count;              //Window element counter
     private int window_size;        //Run length window
-    private int limit;              //Number of removing items from each side [front, end]
+    private int boundary;              //Number of removing items from each side [front, end]
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
@@ -64,12 +64,11 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
         }
 
         //Limit
-        if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
+        if ((attributeExpressionExecutors[1] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[1].getReturnType() == Attribute.Type.INT)) {
-            this.limit = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.boundary = (Integer) attributeExpressionExecutors[1].execute(null);
         } else {
-            throw new IllegalArgumentException("Number of closest values should be " +
-                    "(Constant, type.INT");
+            throw new IllegalArgumentException("Boundary value should be (Constant, type.INT");
         }
 
         //Data stream
@@ -78,8 +77,8 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
         }
 
         /* Input condition validation */
-        if (2*limit > window_size){
-            throw new OperationNotSupportedException("limit should be twice less than window size");
+        if (2* boundary > window_size){
+            throw new OperationNotSupportedException("boundary should be twice less than window size");
         }
 
         //Initialize variables
@@ -163,7 +162,7 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
         Collections.sort(tmp);
 
         //Remove corner values
-        for(int i=0; i<limit; i++){
+        for(int i = 0; i< boundary; i++){
             tmp.remove(0);
             tmp.remove(tmp.size()-1);
         }

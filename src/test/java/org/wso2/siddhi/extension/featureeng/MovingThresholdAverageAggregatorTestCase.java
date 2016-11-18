@@ -14,7 +14,25 @@ public class MovingThresholdAverageAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
     private double[] testVal = {
-
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3.321,
+            6.4556,
+            6.8068,
+            7.2468,
+            6.543,
+            3.178,
+            5.9974,
+            5.536,
+            5.2832,
+            5.2528,
+            5.6898,
+            5.9456,
+            6.1236,
+            6.4556,
+            6.7268
     };
 
     @Before

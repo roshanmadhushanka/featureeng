@@ -14,7 +14,25 @@ public class MovingProbabilityAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
     private double[] testVal = {
-
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.2,
+            0.3,
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.2,
+            0.2,
+            0.2,
+            0.4
     };
 
     @Before

@@ -15,7 +15,25 @@ public class MovingStandardDeviationAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
     private double[] testVal = {
-
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.79152221,
+            1.91756967,
+            2.13077041,
+            2.0109795,
+            2.01146941,
+            2.05756639,
+            1.95167083,
+            1.45998397,
+            1.16719037,
+            1.17264716,
+            0.5706156,
+            0.65251317,
+            0.85165242,
+            1.13255174,
+            0.88181095
     };
 
     @Before

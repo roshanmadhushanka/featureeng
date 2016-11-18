@@ -1,10 +1,8 @@
 movavg=org.wso2.siddhi.extension.featureeng.MovingAverageAggregator
-movkavg=org.wso2.siddhi.extension.featureeng.MovingKClosestAverageAggregator
-movmcavg=org.wso2.siddhi.extension.featureeng.MovingMedianCenteredAverageAggregator
-movtavg=org.wso2.siddhi.extension.featureeng.MovingThresholdAverageAggregator
-movmed=org.wso2.siddhi.extension.featureeng.MovingMedianAggregator
-movstd=org.wso2.siddhi.extension.featureeng.MovingStandardDeviationAggregator
-movprob=org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregator
 moventr=org.wso2.siddhi.extension.featureeng.MovingEntropyAggregator
-
-test=org.wso2.siddhi.extension.featureeng.Test
+movkavg=org.wso2.siddhi.extension.featureeng.MovingKClosestAverageAggregator
+movmed=org.wso2.siddhi.extension.featureeng.MovingMedianAggregator
+movmcavg=org.wso2.siddhi.extension.featureeng.MovingMedianCenteredAverageAggregator
+movprob=org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregator
+movstd=org.wso2.siddhi.extension.featureeng.MovingStandardDeviationAggregator
+movtavg=org.wso2.siddhi.extension.featureeng.MovingThresholdAverageAggregator

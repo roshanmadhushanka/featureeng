@@ -5,7 +5,6 @@ org/wso2/siddhi/extension/featureeng/MovingEntropyAggregatorTestCase.class
 org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregatorTestCase.class
 org/wso2/siddhi/extension/featureeng/MovingMedianAggregatorTestCase$1.class
 org/wso2/siddhi/extension/featureeng/MovingMedianAggregatorTestCase.class
-org/wso2/siddhi/extension/featureeng/TestTestCase.class
 org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregatorTestCase.class
 org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregatorTestCase$1.class
 org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregatorTestCase$1.class
@@ -14,5 +13,4 @@ org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregatorTestCase.c
 org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregatorTestCase$1.class
 org/wso2/siddhi/extension/featureeng/MovingAverageAggregatorTestCase.class
 org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregatorTestCase$1.class
-org/wso2/siddhi/extension/featureeng/TestTestCase$1.class
 org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregatorTestCase.class
