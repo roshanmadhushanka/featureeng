@@ -1,5 +1,6 @@
 package org.wso2.siddhi.extension.featureeng;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.wso2.siddhi.core.ExecutionPlanRuntime;
@@ -13,6 +14,27 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MovingKClosestAverageAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
+    private double[] testVal = {
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.661,
+            7.86466667,
+            8.45,
+            8.05833333,
+            5.33933333,
+            5.29166667,
+            6.02366667,
+            6.456,
+            6.03466667,
+            5.55166667,
+            5.23966667,
+            6.461,
+            6.75766667,
+            7.311,
+            6.118
+    };
 
     @Before
     public void init() {
@@ -21,7 +43,7 @@ public class MovingKClosestAverageAggregatorTestCase {
     }
 
     @Test
-    public void testSplitFunctionExtension() throws InterruptedException {
+    public void testMovingKClosestAverageCalculation() throws InterruptedException {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
@@ -31,7 +53,7 @@ public class MovingKClosestAverageAggregatorTestCase {
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {
             @Override
             public void receive(org.wso2.siddhi.core.event.Event[] events) {
-                EventPrinter.print(events);
+                Assert.assertEquals(testVal[count.getAndIncrement()], (Double) events[0].getData(0), 0.00000001);
             }
         });
 

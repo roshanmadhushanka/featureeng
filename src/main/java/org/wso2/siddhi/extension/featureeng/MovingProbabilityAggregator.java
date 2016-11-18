@@ -1,3 +1,21 @@
+/*
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 package org.wso2.siddhi.extension.featureeng;
 
 import org.wso2.siddhi.core.config.ExecutionPlanContext;
@@ -5,9 +23,15 @@ import org.wso2.siddhi.core.exception.OperationNotSupportedException;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
-
 import java.util.ArrayList;
-import java.util.Arrays;
+
+/*
+* featureeng:movprob(window_size, no_of_bins, data_stream); [INT, INT, DOUBLE]
+* Input Condition(s): no_of_bins < window_size
+* Return Type(s): DOUBLE
+*
+* Calculate moving average
+*/
 
 public class MovingProbabilityAggregator extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
@@ -105,12 +129,12 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
 
     @Override
     public void start() {
-
+        //Nothing to start
     }
 
     @Override
     public void stop() {
-
+        //Nothing to stop
     }
 
     @Override
@@ -120,7 +144,7 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
 
     @Override
     public void restoreState(Object[] objects) {
-
+        //No need to maintain state
     }
 
     private double calculate(){

@@ -20,6 +20,7 @@ package org.wso2.siddhi.extension.featureeng;
 
 import org.wso2.siddhi.core.config.ExecutionPlanContext;
 import org.wso2.siddhi.core.exception.OperationNotSupportedException;
+import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
@@ -30,15 +31,16 @@ import org.wso2.siddhi.query.api.definition.Attribute;
 * Return Type(s): DOUBLE
 *
 * Calculate moving average
+* Moving Average = SUM (x) / WINDOW_SIZE; where x is an element inside the window
 */
 
 public class MovingAverageAggregator extends AttributeAggregator{
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private double tot;         //Window total
-    private double avg;         //Window average
-    private double val;         //Current value
-    private int count;          //Window element counter
-    private int window_size;    //Run length window
+    private double tot;             //Window total
+    private double avg;             //Window average
+    private double val;             //Current value
+    private int count;              //Window element counter
+    private int window_size = 0;    //Run length window
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors,
@@ -49,14 +51,18 @@ public class MovingAverageAggregator extends AttributeAggregator{
                     + attributeExpressionExecutors.length + " parameter(s)");
         }
 
-        //Parameter type check
-        if (attributeExpressionExecutors[0].getReturnType() != Attribute.Type.INT) {
-            //Window size
+        /* Data validation */
+        //Window size
+        if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
+                (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
+            this.window_size = (Integer) attributeExpressionExecutors[0].execute(null);
+        } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
-                    "(type.INT)");
+                    "(Constant, type.INT)");
         }
+
+        //Stream data
         if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.DOUBLE){
-            //Stream data
             throw new IllegalArgumentException("Stream data should be in type.DOUBLE");
         }
 
@@ -65,7 +71,6 @@ public class MovingAverageAggregator extends AttributeAggregator{
         this.avg = 0.0;
         this.val = 0.0;
         this.count = 1;
-        this.window_size = 0;
     }
 
     @Override
@@ -81,7 +86,6 @@ public class MovingAverageAggregator extends AttributeAggregator{
     @Override
     public Object processAdd(Object[] objects) {
         //Collect stream data
-        window_size = (Integer) objects[0];
         val = (Double) objects[1];
 
         //Process data
@@ -91,6 +95,7 @@ public class MovingAverageAggregator extends AttributeAggregator{
         }else {                                //If window filled, do the calculation
             avg = calculate();
         }
+
         return avg;
     }
 

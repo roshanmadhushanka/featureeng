@@ -1,5 +1,6 @@
 package org.wso2.siddhi.extension.featureeng;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.wso2.siddhi.core.ExecutionPlanRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
@@ -9,12 +10,13 @@ import org.wso2.siddhi.core.util.EventPrinter;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * Created by wso2123 on 11/16/16.
- */
+
 public class MovingStandardDeviationAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
+    private double[] testVal = {
+
+    };
 
     @Before
     public void init() {
@@ -23,7 +25,7 @@ public class MovingStandardDeviationAggregatorTestCase {
     }
 
     @org.junit.Test
-    public void testSplitFunctionExtension() throws InterruptedException {
+    public void testMovingStandardDeviationCalculation() throws InterruptedException {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
@@ -33,7 +35,7 @@ public class MovingStandardDeviationAggregatorTestCase {
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {
             @Override
             public void receive(org.wso2.siddhi.core.event.Event[] events) {
-                EventPrinter.print(events);
+                Assert.assertEquals(testVal[count.getAndIncrement()], (Double) events[0].getData(0), 0.00000001);
             }
         });
 

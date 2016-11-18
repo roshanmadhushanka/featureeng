@@ -1,12 +1,12 @@
 package org.wso2.siddhi.extension.featureeng;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.wso2.siddhi.core.ExecutionPlanRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
 import org.wso2.siddhi.core.stream.input.InputHandler;
 import org.wso2.siddhi.core.stream.output.StreamCallback;
-import org.wso2.siddhi.core.util.EventPrinter;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -14,6 +14,27 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MovingAverageAggregatorTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
+    private double[] testVal = {
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.9236,
+            6.4556,
+            6.8068,
+            7.2468,
+            6.5430,
+            6.5144,
+            5.9974,
+            5.5360,
+            5.2832,
+            5.2528,
+            5.6898,
+            5.9456,
+            6.1236,
+            6.4556,
+            6.7268
+    };
 
     @Before
     public void init() {
@@ -22,7 +43,7 @@ public class MovingAverageAggregatorTestCase {
     }
 
     @Test
-    public void testSplitFunctionExtension() throws InterruptedException {
+    public void testMovingAverageCalculation() throws InterruptedException {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
@@ -32,7 +53,7 @@ public class MovingAverageAggregatorTestCase {
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {
             @Override
             public void receive(org.wso2.siddhi.core.event.Event[] events) {
-                EventPrinter.print(events);
+                Assert.assertEquals(testVal[count.getAndIncrement()], (Double) events[0].getData(0), 0.00000001);
             }
         });
 
