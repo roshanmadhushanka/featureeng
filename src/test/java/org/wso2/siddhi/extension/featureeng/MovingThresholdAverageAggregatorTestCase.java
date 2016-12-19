@@ -6,8 +6,6 @@ import org.wso2.siddhi.core.ExecutionPlanRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
 import org.wso2.siddhi.core.stream.input.InputHandler;
 import org.wso2.siddhi.core.stream.output.StreamCallback;
-import org.wso2.siddhi.core.util.EventPrinter;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MovingThresholdAverageAggregatorTestCase {

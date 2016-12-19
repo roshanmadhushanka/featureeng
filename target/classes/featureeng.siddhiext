@@ -6,3 +6,4 @@ movmcavg=org.wso2.siddhi.extension.featureeng.MovingMedianCenteredAverageAggrega
 movprob=org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregator
 movstd=org.wso2.siddhi.extension.featureeng.MovingStandardDeviationAggregator
 movtavg=org.wso2.siddhi.extension.featureeng.MovingThresholdAverageAggregator
+movvar=org.wso2.siddhi.extension.featureeng.MovingVarianceAggregator

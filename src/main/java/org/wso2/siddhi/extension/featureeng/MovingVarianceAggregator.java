@@ -24,24 +24,25 @@ import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /*
-* featureeng:movstd(window_size, data_stream); [INT, DOUBLE]
+* featureeng:movvar(window_size, data_stream); [INT, DOUBLE]
 * Input Condition(s): NULL
 * Return Type(s): DOUBLE
 *
-* Calculate moving standard deviation
-* Moving standard Deviation = SQRT(SUM(((x - avg)^2)/window_size));
+* Calculate moving variance
+* Moving standard Deviation = SUM(((x - avg)^2)/window_size);
 * where x is an element inside the window
 */
 
-public class MovingStandardDeviationAggregator extends AttributeAggregator{
+public class MovingVarianceAggregator extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
     private double tot;             //Window total
     private double avg;             //Window average
-    private double std;             //Window standard deviation
+    private double var;             //Window variance
     private int count;              //Window element counter
     private int window_size;        //Run length window
     private List<Double> num_arr;   //Keep window elements
@@ -72,7 +73,7 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
         //Initialize variables
         this.tot = 0.0;
         this.avg = 0.0;
-        this.std = 0.0;
+        this.var = 0.0;
         this.count = 1;
         this.num_arr = new ArrayList<Double>();
     }
@@ -98,10 +99,10 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
         if ( count < window_size) {            //Return default value until fill the window
             count++;
         }else {                                //If window filled, do the calculation
-            std = calculate();
+            var = calculate();
         }
 
-        return std;
+        return var;
     }
 
     @Override
@@ -123,35 +124,34 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
 
     @Override
     public void start() {
-        //Nothing to start
+
     }
 
     @Override
     public void stop() {
-        //Nothing to stop
+
     }
 
     @Override
     public Object[] currentState() {
-        return null;
+        return new Object[0];
     }
 
     @Override
     public void restoreState(Object[] objects) {
-        //No need to maintain state
+
     }
 
     /*
-        Calculate moving standard deviation for a given window
+        Calculate moving variance for a given window
      */
     private double calculate(){
         avg = tot / window_size;
-        std = 0.0;
+        var = 0.0;
         for(double num: num_arr){
-            std += Math.pow(num, 2.0);
+            var += Math.pow(num, 2.0);
         }
-        std = (std/window_size) - Math.pow(avg, 2.0);
-        std = Math.sqrt(std);
-        return std;
+        var = (var/window_size) - Math.pow(avg, 2.0);
+        return var;
     }
 }

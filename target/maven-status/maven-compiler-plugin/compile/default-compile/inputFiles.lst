@@ -3,6 +3,7 @@
 /home/wso2123/Documents/MyProjects/featureeng/src/main/java/org/wso2/siddhi/extension/featureeng/MovingMedianAggregator.java
 /home/wso2123/Documents/MyProjects/featureeng/src/main/java/org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregator.java
 /home/wso2123/Documents/MyProjects/featureeng/src/main/java/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregator.java
+/home/wso2123/Documents/MyProjects/featureeng/src/main/java/org/wso2/siddhi/extension/featureeng/MovingVarianceAggregator.java
 /home/wso2123/Documents/MyProjects/featureeng/src/main/java/org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregator.java
 /home/wso2123/Documents/MyProjects/featureeng/src/main/java/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.java
 /home/wso2123/Documents/MyProjects/featureeng/src/main/java/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregator.java
