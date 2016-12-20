@@ -25,32 +25,33 @@ import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
-* featureeng:movtavg(window_size, threshold, data_stream); [INT, DOUBLE, DOUBLE]
+* featureeng:movvar(windowSize, data_stream); [INT, DOUBLE]
 * Input Condition(s): NULL
 * Return Type(s): DOUBLE
 *
-* Calculate moving threshold average
-* Moving Threshold Average = Calculate moving average if the absolute difference between moving
-* average and the most recent value is less than the threshold then returns the moving average else
-* return the recen value.
+* Calculate moving variance
+* Moving standard Deviation = SUM(((x - avg)^2)/windowSize);
+* where x is an element inside the window
 */
 
-public class MovingThresholdAverageAggregator extends AttributeAggregator {
+public class Variance extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private double tot;         //Window total
-    private double avg;         //Window average
-    private double threshold;   //Threshold value to the original value and last occurence.
-                                // [Only accept if the difference is under threshold]
-    private double val;         //Value received from the stream
-    private int count;          //Window element counter
-    private int window_size;    //Run length window
+    private List<Double> windowElements;    //Keep window elements
+    private double total;                   //Window total
+    private int count;                      //Window element counter
+    private int windowSize;                 //Run length window
+
 
     @Override
-    protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
+    protected void init(ExpressionExecutor[] expressionExecutors,
+                        ExecutionPlanContext executionPlanContext) {
         //No of parameter check
-        if (attributeExpressionExecutors.length != 3){
-            throw new OperationNotSupportedException("3 parameters are required, given "
+        if (attributeExpressionExecutors.length != 2) {
+            throw new OperationNotSupportedException("2 parameters are required, given "
                     + attributeExpressionExecutors.length + " parameter(s)");
         }
 
@@ -58,31 +59,21 @@ public class MovingThresholdAverageAggregator extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.window_size = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
         }
 
-        //Threshold value
-        if ((attributeExpressionExecutors[1] instanceof ConstantExpressionExecutor) &&
-                (attributeExpressionExecutors[1].getReturnType() == Attribute.Type.DOUBLE)){
-            this.threshold = (Double) attributeExpressionExecutors[1].execute(null);
-        } else {
-            throw new IllegalArgumentException("Threshold value should be " +
-                    "(constatnt, type.DOUBLE)");
-        }
-
-        //Stream data
-        if (attributeExpressionExecutors[2].getReturnType() != Attribute.Type.DOUBLE){
+        //Data stream
+        if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.DOUBLE) {
             throw new IllegalArgumentException("Stream data should be in type.DOUBLE");
         }
 
         //Initialize variables
-        this.tot = 0.0;
-        this.avg = 0.0;
-        this.val = 0.0;
+        this.total = 0.0;
         this.count = 1;
+        this.windowElements = new ArrayList<Double>();
     }
 
     @Override
@@ -97,18 +88,21 @@ public class MovingThresholdAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object processAdd(Object[] objects) {
+        double var = 0.0;
+
         //Collect stream data
-        val = (Double) objects[2];
+        double val = (Double) objects[1];
+        windowElements.add(val);
 
         //Process data
-        tot += val;
-        if ( count < window_size) {            //Return default value until fill the window
+        total += val;
+        if (count < windowSize) {            //Return default value until fill the window
             count++;
-        }else {                                //If window filled, do the calculation
-            avg = calculate();
+        } else {                                //If window filled, do the calculation
+            var = calculate();
         }
 
-        return avg;
+        return var;
     }
 
     @Override
@@ -118,7 +112,8 @@ public class MovingThresholdAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object processRemove(Object[] objects) {
-        tot -= (Double) objects[2];
+        total -= (Double) objects[1];
+        windowElements.remove(0);
         return null;
     }
 
@@ -129,32 +124,40 @@ public class MovingThresholdAverageAggregator extends AttributeAggregator {
 
     @Override
     public void start() {
-        //Nothing to start
+
     }
 
     @Override
     public void stop() {
-        //Nothing to stop
+
     }
 
     @Override
     public Object[] currentState() {
-        return null;
+        return new Object[] {windowElements, total, count, windowSize};
     }
 
     @Override
     public void restoreState(Object[] objects) {
-        //No need to maintain state
+        this.windowElements = (List<Double>) objects[0];
+        this.total = (Double) objects[1];
+        this.count = (Integer) objects[2];
+        this.windowSize = (Integer) objects[3];
     }
 
     /*
-        Calculate moving threshold average for a given window
+        Calculate moving variance for a given window
      */
-    private double calculate(){
-        avg = tot / window_size;
-        if (Math.abs(val - avg) > threshold){
-            avg = val;
+    private double calculate() {
+        double avg;
+        double var;
+
+        avg = total / windowSize;
+        var = 0.0;
+        for (double num : windowElements) {
+            var += Math.pow(num, 2.0);
         }
-        return avg;
+        var = (var / windowSize) - Math.pow(avg, 2.0);
+        return var;
     }
 }

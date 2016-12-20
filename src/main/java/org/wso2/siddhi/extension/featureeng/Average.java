@@ -24,32 +24,27 @@ import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
-import java.util.ArrayList;
-import java.util.List;
 
-/*
-* featureeng:movstd(window_size, data_stream); [INT, DOUBLE]
-* Input Condition(s): NULL
-* Return Type(s): DOUBLE
-*
-* Calculate moving standard deviation
-* Moving standard Deviation = SQRT(SUM(((x - avg)^2)/window_size));
-* where x is an element inside the window
-*/
+/**
+ * featureeng:movavg(windowSize, data_stream); [INT, DOUBLE]
+ * Input Condition(s): NULL
+ * Return Type(s): DOUBLE
+ * <p>
+ * Calculate moving average
+ * Moving Average = SUM (x) / WINDOW_SIZE; where x is an element inside the window
+ */
 
-public class MovingStandardDeviationAggregator extends AttributeAggregator{
+public class Average extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private double tot;             //Window total
-    private double avg;             //Window average
-    private double std;             //Window standard deviation
-    private int count;              //Window element counter
-    private int window_size;        //Run length window
-    private List<Double> num_arr;   //Keep window elements
+    private double total;               //Window total
+    private int count;                  //Window element counter
+    private int windowSize = 0;        //Run length window
 
     @Override
-    protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
+    protected void init(ExpressionExecutor[] expressionExecutors,
+                        ExecutionPlanContext executionPlanContext) {
         //No of parameter check
-        if (attributeExpressionExecutors.length != 2){
+        if (attributeExpressionExecutors.length != 2) {
             throw new OperationNotSupportedException("2 parameters are required, given "
                     + attributeExpressionExecutors.length + " parameter(s)");
         }
@@ -58,23 +53,20 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.window_size = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
         }
 
-        //Data stream
-        if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.DOUBLE){
+        //Stream data
+        if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.DOUBLE) {
             throw new IllegalArgumentException("Stream data should be in type.DOUBLE");
         }
 
         //Initialize variables
-        this.tot = 0.0;
-        this.avg = 0.0;
-        this.std = 0.0;
+        this.total = 0.0;
         this.count = 1;
-        this.num_arr = new ArrayList<Double>();
     }
 
     @Override
@@ -89,19 +81,21 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
 
     @Override
     public Object processAdd(Object[] objects) {
+        double val;
+        double avg = 0.0;
+
         //Collect stream data
-        double val = (Double) objects[1];
-        num_arr.add(val);
+        val = (Double) objects[1];
 
         //Process data
-        tot += val;
-        if ( count < window_size) {            //Return default value until fill the window
+        total += val;
+        if (count < windowSize) {            //Return default value until fill the window
             count++;
-        }else {                                //If window filled, do the calculation
-            std = calculate();
+        } else {                              //If window filled, do the calculation
+            avg = calculate();
         }
 
-        return std;
+        return avg;
     }
 
     @Override
@@ -111,8 +105,7 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
 
     @Override
     public Object processRemove(Object[] objects) {
-        tot -= (Double) objects[1];
-        num_arr.remove(0);
+        total -= (Double) objects[1];
         return null;
     }
 
@@ -133,25 +126,22 @@ public class MovingStandardDeviationAggregator extends AttributeAggregator{
 
     @Override
     public Object[] currentState() {
-        return null;
+        return new Object[] {total, count, windowSize};
     }
 
     @Override
     public void restoreState(Object[] objects) {
-        //No need to maintain state
+        this.total = (Double) objects[0];
+        this.count = (Integer) objects[1];
+        this.windowSize = (Integer) objects[2];
     }
 
     /*
-        Calculate moving standard deviation for a given window
+    Calculate average for a given window
      */
-    private double calculate(){
-        avg = tot / window_size;
-        std = 0.0;
-        for(double num: num_arr){
-            std += Math.pow(num, 2.0);
-        }
-        std = (std/window_size) - Math.pow(avg, 2.0);
-        std = Math.sqrt(std);
-        return std;
+    private double calculate() {
+        double avg;
+        avg = total / windowSize;
+        return avg;
     }
 }

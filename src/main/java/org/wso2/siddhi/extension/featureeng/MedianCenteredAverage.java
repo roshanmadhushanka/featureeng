@@ -29,26 +29,25 @@ import java.util.Collections;
 import java.util.List;
 
 /*
-* featureeng:movmcavg(window_size, boundary, data_stream); [INT, INT, DOUBLE]
-* Input Condition(s): 2 * boundary < window_size
+* featureeng:movmcavg(windowSize, boundary, data_stream); [INT, INT, DOUBLE]
+* Input Condition(s): 2 * boundary < windowSize
 * Return Type(s): DOUBLE
 *
 * Calculate moving median centered average
 * Moving Median Centered average = AVERAGE(REMOVE_BOUNDRY_FROM_BOTH_ENDS(SORT(WINDOW_ELEMENTS)))
 */
 
-public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
+public class MedianCenteredAverage extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private List<Double> num_arr;   //Keep window elements
-    private double avg;             //Window average
-    private int count;              //Window element counter
-    private int window_size;        //Run length window
-    private int boundary;              //Number of removing items from each side [front, end]
+    private List<Double> windowElements;    //Keep window elements
+    private int count;                      //Window element counter
+    private int windowSize;                 //Run length window
+    private int boundary;                   //Number of removing items from each side [front, end]
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
         //No of parameter check
-        if (attributeExpressionExecutors.length != 3){
+        if (attributeExpressionExecutors.length != 3) {
             throw new OperationNotSupportedException("3 parameters are required, given "
                     + attributeExpressionExecutors.length + " parameter(s)");
         }
@@ -57,7 +56,7 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.window_size = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
@@ -72,18 +71,17 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
         }
 
         //Data stream
-        if (attributeExpressionExecutors[2].getReturnType() != Attribute.Type.DOUBLE){
+        if (attributeExpressionExecutors[2].getReturnType() != Attribute.Type.DOUBLE) {
             throw new IllegalArgumentException("Stream data should be in type.DOUBLE");
         }
 
         /* Input condition validation */
-        if (2* boundary > window_size){
+        if (2 * boundary > windowSize) {
             throw new OperationNotSupportedException("boundary should be twice less than window size");
         }
 
         //Initialize variables
-        this.num_arr = new ArrayList<Double>();
-        this.avg = 0.0;
+        this.windowElements = new ArrayList<Double>();
         this.count = 1;
     }
 
@@ -99,13 +97,15 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object processAdd(Object[] objects) {
+        double avg = 0.0;
+
         //Collect stream data
-        num_arr.add((Double) objects[2]);
+        windowElements.add((Double) objects[2]);
 
         //Process data
-        if ( count < window_size) {            //Return default value until fill the window
+        if (count < windowSize) {            //Return default value until fill the window
             count++;
-        }else {                                //If window filled, do the calculation
+        } else {                                //If window filled, do the calculation
             avg = calculate();
         }
 
@@ -120,7 +120,7 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
     @Override
     public Object processRemove(Object[] objects) {
         //Remove first element in the queue
-        num_arr.remove(0);
+        windowElements.remove(0);
         return null;
     }
 
@@ -141,30 +141,34 @@ public class MovingMedianCenteredAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[0];
+        return new Object[] {windowElements, count, windowSize, boundary};
     }
 
     @Override
     public void restoreState(Object[] objects) {
-        //No need to maintain state
+        this.windowElements = (List<Double>) objects[0];
+        this.count = (Integer) objects[1];
+        this.windowSize = (Integer) objects[2];
+        this.boundary = (Integer) objects[3];
     }
 
     /*
         Calculate moving median centered average for a given window
      */
-    private double calculate(){
+    private double calculate() {
         double tot = 0.0;
+        double avg;
 
         //Create temp list, otherwise list sort will change the original order of the data
-        ArrayList<Double> tmp = new ArrayList<Double>(num_arr);
+        ArrayList<Double> tmp = new ArrayList<Double>(windowElements);
 
         //Sort values
         Collections.sort(tmp);
 
         //Remove corner values
-        for(int i = 0; i< boundary; i++){
+        for (int i = 0; i < boundary; i++) {
             tmp.remove(0);
-            tmp.remove(tmp.size()-1);
+            tmp.remove(tmp.size() - 1);
         }
 
         //Calculate total

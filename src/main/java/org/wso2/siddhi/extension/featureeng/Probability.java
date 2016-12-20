@@ -24,33 +24,34 @@ import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /*
-* featureeng:movprob(window_size, no_of_bins, data_stream); [INT, INT, DOUBLE]
-* Input Condition(s): no_of_bins < window_size
+* featureeng:movprob(windowSize, no_of_bins, data_stream); [INT, INT, DOUBLE]
+* Input Condition(s): no_of_bins < windowSize
 * Return Type(s): DOUBLE
 *
 * Calculate moving average
 */
 
-public class MovingProbabilityAggregator extends AttributeAggregator {
+public class Probability extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private List<Double> num_arr; //Keep window elements
-    private double prob;    //Window probability
-    private int count;      //Window element counter
-    private int window_size;//Run length window
-    private int nbins;      //Number of discrete levels
-    private double val;     //Current value
-    private double binSize; //Gap between consecutive discrete levels
-    private double min;     //Local minimum for given window
-    private double max;     //Local maximum for given window
+    private List<Double> windowElements;    //Keep window elements
+    private int count;                      //Window element counter
+    private int windowSize;                 //Run length window
+    private int nbins;                      //Number of discrete levels
+    private double currentValue;            //Current value
+    private double binSize;                 //Gap between consecutive discrete levels
+    private double min;                     //Local minimum for given window
+    private double max;                     //Local maximum for given window
 
     @Override
-    protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
+    protected void init(ExpressionExecutor[] expressionExecutors,
+                        ExecutionPlanContext executionPlanContext) {
         //No of parameter check
-        if (attributeExpressionExecutors.length != 3){
+        if (attributeExpressionExecutors.length != 3) {
             throw new OperationNotSupportedException("3 parameters are required, given "
                     + attributeExpressionExecutors.length + " parameter(s)");
         }
@@ -59,7 +60,7 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.window_size = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
@@ -74,20 +75,19 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
         }
 
         //Data stream
-        if (attributeExpressionExecutors[2].getReturnType() != Attribute.Type.DOUBLE){
+        if (attributeExpressionExecutors[2].getReturnType() != Attribute.Type.DOUBLE) {
             throw new IllegalArgumentException("Stream data should be in type.DOUBLE");
         }
 
         /* Input condition validation */
-        if (nbins >= window_size){
+        if (nbins >= windowSize) {
             throw new OperationNotSupportedException("nbins value should be less than window size");
         }
 
         //Initialize variables
-        this.num_arr = new ArrayList<Double>();
-        this.prob = 0.0;
+        this.windowElements = new ArrayList<Double>();
         this.count = 1;
-        this.val = 0.0;
+        this.currentValue = 0.0;
         this.binSize = 0.0;
         this.max = Double.MIN_VALUE;
         this.min = Double.MAX_VALUE;
@@ -105,14 +105,16 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
 
     @Override
     public Object processAdd(Object[] objects) {
+        double prob = 0.0;
+
         //Collect stream data
-        val = (Double) objects[2];
-        num_arr.add((Double) objects[2]);
+        currentValue = (Double) objects[2];
+        windowElements.add((Double) objects[2]);
 
         //Process data
-        if ( count < window_size) {            //Return default val until fill the window
+        if (count < windowSize) {            //Return default currentValue until fill the window
             count++;
-        }else {                                //If window filled, do the calculation
+        } else {                                //If window filled, do the calculation
             prob = calculate();
         }
 
@@ -127,7 +129,7 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
     @Override
     public Object processRemove(Object[] objects) {
         //Remove first element in the queue
-        num_arr.remove(0);
+        windowElements.remove(0);
         return null;
     }
 
@@ -148,27 +150,36 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[0];
+        return new Object[] {windowElements, count, windowSize, nbins, currentValue, binSize, min, max};
     }
 
     @Override
     public void restoreState(Object[] objects) {
-        //No need to maintain state
+        this.windowElements = (List<Double>) objects[0];
+        this.count = (Integer) objects[1];
+        this.windowSize = (Integer) objects[2];
+        this.nbins = (Integer) objects[3];
+        this.currentValue = (Double) objects[4];
+        this.binSize = (Double) objects[5];
+        this.min = (Double) objects[6];
+        this.max = (Double) objects[7];
     }
 
     /*
         Calculate moving probability for the recent value in a given window
      */
-    private double calculate(){
+    private double calculate() {
+        double prob;
+
         //Initialize variables
         max = Double.MIN_VALUE;
         min = Double.MAX_VALUE;
 
         //Find local minimum and maximum
-        for(double num: num_arr){
-            if(num < min)
+        for (double num : windowElements) {
+            if (num < min)
                 min = num;
-            if(num > max)
+            if (num > max)
                 max = num;
         }
 
@@ -178,26 +189,26 @@ public class MovingProbabilityAggregator extends AttributeAggregator {
         //Generate histogram
         int[] result = new int[nbins];
         int binIndex;
-        for(double num: num_arr){
-            binIndex = (int)((num - min)/binSize);
-            if(binIndex < 0)
+        for (double num : windowElements) {
+            binIndex = (int) ((num - min) / binSize);
+            if (binIndex < 0)
                 result[0] += 1;
-            else if(binIndex >= nbins)
-                result[nbins-1] += 1;
+            else if (binIndex >= nbins)
+                result[nbins - 1] += 1;
             else
                 result[binIndex] += 1;
         }
 
         //Calculate relevant bin index for the given value
-        binIndex = (int)((val - min)/binSize);
+        binIndex = (int) ((currentValue - min) / binSize);
 
         //Calculate probability
         if (binIndex < 0)
-            prob = (double)result[0] / window_size;
+            prob = (double) result[0] / windowSize;
         else if (binIndex >= nbins)
-            prob = (double)result[nbins-1] / window_size;
+            prob = (double) result[nbins - 1] / windowSize;
         else
-            prob = (double)result[binIndex] / window_size;
+            prob = (double) result[binIndex] / windowSize;
 
         return prob;
     }

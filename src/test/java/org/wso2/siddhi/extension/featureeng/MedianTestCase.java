@@ -1,14 +1,34 @@
+/*
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 package org.wso2.siddhi.extension.featureeng;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.wso2.siddhi.core.ExecutionPlanRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
 import org.wso2.siddhi.core.stream.input.InputHandler;
 import org.wso2.siddhi.core.stream.output.StreamCallback;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class MovingProbabilityAggregatorTestCase {
+public class MedianTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
     private double[] testVal = {
@@ -16,21 +36,21 @@ public class MovingProbabilityAggregatorTestCase {
             0.0,
             0.0,
             0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.2,
-            0.3,
-            0.1,
-            0.2,
-            0.3,
-            0.4,
-            0.2,
-            0.2,
-            0.2,
-            0.4
+            5.363,
+            6.982,
+            7.959,
+            7.959,
+            7.563,
+            7.563,
+            5.374,
+            5.374,
+            5.374,
+            5.374,
+            5.374,
+            6.299,
+            6.299,
+            6.653,
+            6.653
     };
 
     @Before
@@ -39,13 +59,16 @@ public class MovingProbabilityAggregatorTestCase {
         eventArrived = false;
     }
 
-    @org.junit.Test
-    public void testMovingProbabilityCalculation() throws InterruptedException {
+    @Test
+    public void testMovingMedianCalculation() throws InterruptedException {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
-        String query = "@info(name = 'query1') " + "from inputStream#window.length(10) " + "select featureeng:movprob(10, 5, tt) as ans insert into outputStream";
-        ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
+        String query = "@info(name = 'query1') " + "from inputStream#window.length(5) " +
+                "select featureeng:movmed(5, tt) as ans insert into outputStream";
+
+        ExecutionPlanRuntime executionPlanRuntime =
+                siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
 
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {
             @Override
@@ -53,7 +76,6 @@ public class MovingProbabilityAggregatorTestCase {
                 Assert.assertEquals(testVal[count.getAndIncrement()], (Double) events[0].getData(0), 0.00000001);
             }
         });
-
 
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
         executionPlanRuntime.start();

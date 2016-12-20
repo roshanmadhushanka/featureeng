@@ -29,28 +29,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-* featureeng:movvar(window_size, data_stream); [INT, DOUBLE]
+* featureeng:movstd(windowSize, data_stream); [INT, DOUBLE]
 * Input Condition(s): NULL
 * Return Type(s): DOUBLE
 *
-* Calculate moving variance
-* Moving standard Deviation = SUM(((x - avg)^2)/window_size);
+* Calculate moving standard deviation
+* Moving standard Deviation = SQRT(SUM(((x - avg)^2)/windowSize));
 * where x is an element inside the window
 */
 
-public class MovingVarianceAggregator extends AttributeAggregator {
+public class StandardDeviation extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private double tot;             //Window total
-    private double avg;             //Window average
-    private double var;             //Window variance
-    private int count;              //Window element counter
-    private int window_size;        //Run length window
-    private List<Double> num_arr;   //Keep window elements
+    private List<Double> windowElements;    //Keep window elements
+    private double total;                   //Window total
+    private int count;                      //Window element counter
+    private int windowSize;                 //Run length window
+
 
     @Override
-    protected void init(ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
+    protected void init(ExpressionExecutor[] expressionExecutors,
+                        ExecutionPlanContext executionPlanContext) {
         //No of parameter check
-        if (attributeExpressionExecutors.length != 2){
+        if (attributeExpressionExecutors.length != 2) {
             throw new OperationNotSupportedException("2 parameters are required, given "
                     + attributeExpressionExecutors.length + " parameter(s)");
         }
@@ -59,23 +59,21 @@ public class MovingVarianceAggregator extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.window_size = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
         }
 
         //Data stream
-        if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.DOUBLE){
+        if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.DOUBLE) {
             throw new IllegalArgumentException("Stream data should be in type.DOUBLE");
         }
 
         //Initialize variables
-        this.tot = 0.0;
-        this.avg = 0.0;
-        this.var = 0.0;
+        this.total = 0.0;
         this.count = 1;
-        this.num_arr = new ArrayList<Double>();
+        this.windowElements = new ArrayList<Double>();
     }
 
     @Override
@@ -90,19 +88,20 @@ public class MovingVarianceAggregator extends AttributeAggregator {
 
     @Override
     public Object processAdd(Object[] objects) {
+        double std = 0.0;
         //Collect stream data
         double val = (Double) objects[1];
-        num_arr.add(val);
+        windowElements.add(val);
 
         //Process data
-        tot += val;
-        if ( count < window_size) {            //Return default value until fill the window
+        total += val;
+        if (count < windowSize) {            //Return default value until fill the window
             count++;
-        }else {                                //If window filled, do the calculation
-            var = calculate();
+        } else {                                //If window filled, do the calculation
+            std = calculate();
         }
 
-        return var;
+        return std;
     }
 
     @Override
@@ -112,8 +111,8 @@ public class MovingVarianceAggregator extends AttributeAggregator {
 
     @Override
     public Object processRemove(Object[] objects) {
-        tot -= (Double) objects[1];
-        num_arr.remove(0);
+        total -= (Double) objects[1];
+        windowElements.remove(0);
         return null;
     }
 
@@ -124,34 +123,44 @@ public class MovingVarianceAggregator extends AttributeAggregator {
 
     @Override
     public void start() {
-
+        //Nothing to start
     }
 
     @Override
     public void stop() {
-
+        //Nothing to stop
     }
 
     @Override
     public Object[] currentState() {
-        return new Object[0];
+        return new Object[] {windowElements, total, count, windowSize};
     }
 
     @Override
     public void restoreState(Object[] objects) {
+        this.windowElements = (List<Double>) objects[0];
+        this.total = (Double) objects[1];
+        this.count = (Integer) objects[2];
+        this.windowSize = (Integer) objects[3];
 
     }
 
     /*
-        Calculate moving variance for a given window
+        Calculate moving standard deviation for a given window
      */
-    private double calculate(){
-        avg = tot / window_size;
-        var = 0.0;
-        for(double num: num_arr){
-            var += Math.pow(num, 2.0);
+    private double calculate() {
+        double avg;
+        double std;
+        double tot;
+
+        avg = total / windowSize;
+        tot = 0.0;
+        for (double num : windowElements) {
+            tot += Math.pow(num, 2.0);
         }
-        var = (var/window_size) - Math.pow(avg, 2.0);
-        return var;
+
+        std = Math.sqrt((tot / windowSize) - Math.pow(avg, 2.0));
+
+        return std;
     }
 }

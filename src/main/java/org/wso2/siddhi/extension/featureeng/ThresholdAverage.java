@@ -24,34 +24,32 @@ import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 /*
-* featureeng:movkavg(window_size, k_closest, data_stream); [INT, INT, DOUBLE]
-* Input Condition(s): k_closet < window_size
+* featureeng:movtavg(windowSize, threshold, data_stream); [INT, DOUBLE, DOUBLE]
+* Input Condition(s): NULL
 * Return Type(s): DOUBLE
 *
-* Calculate k closest average
-* Moving K Closest Average = Select K number of closest values to the last occurrence including
-*                            itself and calculate the average
+* Calculate moving threshold average
+* Moving Threshold Average = Calculate moving average if the absolute difference between moving
+* average and the most recent currentValue is less than the threshold then returns the moving average else
+* return the recen currentValue.
 */
 
-public class MovingKClosestAverageAggregator extends AttributeAggregator {
+public class ThresholdAverage extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private List<Double> num_arr;       //Keep window elements
-    private double avg;                 //Window average
-    private int count;                  //Window element counter
-    private int window_size;            //Run length window
-    private int k_closest;              //Number of closest values to the last occurence
+    private double total;           //Window total
+    private double threshold;       //Threshold currentValue to the original currentValue and last occurence.
+    // [Only accept if the difference is under threshold]
+    private double currentValue;    //Value received from the stream
+    private int count;              //Window element counter
+    private int windowSize;         //Run length window
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors,
                         ExecutionPlanContext executionPlanContext) {
-         //No of parameter check
-        if (attributeExpressionExecutors.length != 3){
+        //No of parameter check
+        if (attributeExpressionExecutors.length != 3) {
             throw new OperationNotSupportedException("3 parameters are required, given "
                     + attributeExpressionExecutors.length + " parameter(s)");
         }
@@ -60,35 +58,29 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.window_size = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
         }
 
-        //K closest value
+        //Threshold currentValue
         if ((attributeExpressionExecutors[1] instanceof ConstantExpressionExecutor) &&
-                (attributeExpressionExecutors[1].getReturnType() == Attribute.Type.INT)) {
-            this.k_closest = (Integer) attributeExpressionExecutors[1].execute(null);
+                (attributeExpressionExecutors[1].getReturnType() == Attribute.Type.DOUBLE)) {
+            this.threshold = (Double) attributeExpressionExecutors[1].execute(null);
         } else {
-            throw new IllegalArgumentException("Number of closest values should be " +
-                    "(Constant, type.INT)");
+            throw new IllegalArgumentException("Threshold currentValue should be " +
+                    "(constatnt, type.DOUBLE)");
         }
 
-        //Data stream
-        if (attributeExpressionExecutors[2].getReturnType() != Attribute.Type.DOUBLE){
-            //K closest value
+        //Stream data
+        if (attributeExpressionExecutors[2].getReturnType() != Attribute.Type.DOUBLE) {
             throw new IllegalArgumentException("Stream data should be in type.DOUBLE");
         }
 
-        /* Input condition validation */
-        if (k_closest > window_size){
-            throw new OperationNotSupportedException("K value should be less than window size");
-        }
-
         //Initialize variables
-        this.num_arr = new ArrayList<Double>();
-        this.avg = 0.0;
+        this.total = 0.0;
+        this.currentValue = 0.0;
         this.count = 1;
     }
 
@@ -104,14 +96,19 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object processAdd(Object[] objects) {
-        //Collect stream data
-        num_arr.add((Double) objects[2]);
+        double avg = 0.0;
 
-        if ( count < window_size) {            //Return default value until fill the window
+        //Collect stream data
+        currentValue = (Double) objects[2];
+
+        //Process data
+        total += currentValue;
+        if (count < windowSize) {            //Return default currentValue until fill the window
             count++;
-        }else {                                //If window filled, do the calculation
+        } else {                                //If window filled, do the calculation
             avg = calculate();
         }
+
         return avg;
     }
 
@@ -122,8 +119,7 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object processRemove(Object[] objects) {
-        //Remove first element in the queue
-        num_arr.remove(0);
+        total -= (Double) objects[2];
         return null;
     }
 
@@ -144,41 +140,29 @@ public class MovingKClosestAverageAggregator extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[0];
+        return new Object[] {total, threshold, currentValue, count, windowSize};
     }
 
     @Override
     public void restoreState(Object[] objects) {
-        //No need to maintain state
+        this.total = (Double) objects[0];
+        this.threshold = (Double) objects[1];
+        this.currentValue = (Double) objects[2];
+        this.count = (Integer) objects[3];
+        this.windowSize = (Integer) objects[4];
     }
 
     /*
-        Calculate k closest average for a given window
+        Calculate moving threshold average for a given window
      */
-    private double calculate(){
-        double tot = 0.0;
+    private double calculate() {
+        double avg;
 
-        /* Add numbers in sorted order by absolute difference of the number compared to the last
-        number in window */
-        SortedMap<Double, Double> sortedMap = new TreeMap<Double, Double>();
-        for(int i=0; i<window_size; i++){
-            double key = Math.abs(num_arr.get(i) - num_arr.get(window_size-1));
-            sortedMap.put(key, num_arr.get(i));
+        avg = total / windowSize;
+        if (Math.abs(currentValue - avg) > threshold) {
+            avg = currentValue;
         }
 
-        //Convert keys in the sorted map to double
-        ArrayList<Double> key_array = new ArrayList<Double>();
-        for(double key: sortedMap.keySet()){
-            key_array.add(key);
-        }
-
-        //Calculate the total of k closest values
-        for(int i=0; i<k_closest; i++){
-            tot += sortedMap.get(key_array.get(i));
-        }
-
-        //Calculate the average
-        avg = tot / k_closest;
         return avg;
     }
 }

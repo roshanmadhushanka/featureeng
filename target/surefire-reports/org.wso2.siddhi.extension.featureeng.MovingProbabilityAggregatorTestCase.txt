@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregatorTestCase
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.099 sec - in org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregatorTestCase
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.071 sec - in org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregatorTestCase

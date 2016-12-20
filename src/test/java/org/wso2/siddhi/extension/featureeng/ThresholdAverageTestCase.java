@@ -1,3 +1,21 @@
+/*
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 package org.wso2.siddhi.extension.featureeng;
 
 import org.junit.Assert;
@@ -6,10 +24,10 @@ import org.wso2.siddhi.core.ExecutionPlanRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
 import org.wso2.siddhi.core.stream.input.InputHandler;
 import org.wso2.siddhi.core.stream.output.StreamCallback;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
-
-public class MovingStandardDeviationAggregatorTestCase {
+public class ThresholdAverageTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
     private double[] testVal = {
@@ -17,21 +35,21 @@ public class MovingStandardDeviationAggregatorTestCase {
             0.0,
             0.0,
             0.0,
-            1.79152221,
-            1.91756967,
-            2.13077041,
-            2.0109795,
-            2.01146941,
-            2.05756639,
-            1.95167083,
-            1.45998397,
-            1.16719037,
-            1.17264716,
-            0.5706156,
-            0.65251317,
-            0.85165242,
-            1.13255174,
-            0.88181095
+            3.321,
+            6.4556,
+            6.8068,
+            7.2468,
+            6.543,
+            3.178,
+            5.9974,
+            5.536,
+            5.2832,
+            5.2528,
+            5.6898,
+            5.9456,
+            6.1236,
+            6.4556,
+            6.7268
     };
 
     @Before
@@ -41,12 +59,15 @@ public class MovingStandardDeviationAggregatorTestCase {
     }
 
     @org.junit.Test
-    public void testMovingStandardDeviationCalculation() throws InterruptedException {
+    public void testMovingThresholdAverageCalculation() throws InterruptedException {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
-        String query = "@info(name = 'query1') " + "from inputStream#window.length(5) " + "select featureeng:movstd(5, tt) as ans insert into outputStream";
-        ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
+        String query = "@info(name = 'query1') " + "from inputStream#window.length(5) " +
+                "select featureeng:movtavg(5, 2.0, tt) as ans insert into outputStream";
+
+        ExecutionPlanRuntime executionPlanRuntime =
+                siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
 
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {
             @Override

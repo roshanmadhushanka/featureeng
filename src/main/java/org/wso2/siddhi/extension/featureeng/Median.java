@@ -24,29 +24,31 @@ import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /*
-* featureeng:movavg(window_size, data_stream); [INT, DOUBLE]
+* featureeng:movmed(windowSize, data_stream); [INT, DOUBLE]
 * Input Condition(s): NULL
 * Return Type(s): DOUBLE
 *
-* Calculate moving average
-* Moving Average = SUM (x) / WINDOW_SIZE; where x is an element inside the window
+* Calculate moving median
+* Moving Median = MIDDLE_ELEMENT(SORT(WINDOW_ELEMENTS)); if LENGTH(WINDOW) is odd
+*                 AVERAGE_OF_MIDDLE_2_ELEMENTS(SORT(WINDOW_ELEMENTS)); if LENGTH(WINDOW) is even
 */
 
-public class MovingAverageAggregator extends AttributeAggregator{
+public class Median extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
-    private double tot;             //Window total
-    private double avg;             //Window average
-    private double val;             //Current value
-    private int count;              //Window element counter
-    private int window_size = 0;    //Run length window
+    private List<Double> windowElements;   //Keep window elements
+    private int count;                          //Window element counter
+    private int windowSize;                     //Run length window
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors,
                         ExecutionPlanContext executionPlanContext) {
         //No of parameter check
-        if (attributeExpressionExecutors.length != 2){
+        if (attributeExpressionExecutors.length != 2) {
             throw new OperationNotSupportedException("2 parameters are required, given "
                     + attributeExpressionExecutors.length + " parameter(s)");
         }
@@ -55,21 +57,19 @@ public class MovingAverageAggregator extends AttributeAggregator{
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.window_size = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
         }
 
         //Stream data
-        if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.DOUBLE){
+        if (attributeExpressionExecutors[1].getReturnType() != Attribute.Type.DOUBLE) {
             throw new IllegalArgumentException("Stream data should be in type.DOUBLE");
         }
 
         //Initialize variables
-        this.tot = 0.0;
-        this.avg = 0.0;
-        this.val = 0.0;
+        this.windowElements = new ArrayList<Double>();
         this.count = 1;
     }
 
@@ -85,18 +85,19 @@ public class MovingAverageAggregator extends AttributeAggregator{
 
     @Override
     public Object processAdd(Object[] objects) {
+        double median = 0.0;
+
         //Collect stream data
-        val = (Double) objects[1];
+        windowElements.add((Double) objects[1]);
 
         //Process data
-        tot += val;
-        if ( count < window_size) {            //Return default value until fill the window
+        if (count < windowSize) {            //Return default value until fill the window
             count++;
-        }else {                                //If window filled, do the calculation
-            avg = calculate();
+        } else {                                //If window filled, do the calculation
+            median = calculate();
         }
 
-        return avg;
+        return median;
     }
 
     @Override
@@ -106,7 +107,8 @@ public class MovingAverageAggregator extends AttributeAggregator{
 
     @Override
     public Object processRemove(Object[] objects) {
-        tot -= (Double) objects[1];
+        //Remove first element in the queue
+        windowElements.remove(0);
         return null;
     }
 
@@ -127,19 +129,35 @@ public class MovingAverageAggregator extends AttributeAggregator{
 
     @Override
     public Object[] currentState() {
-        return null;
+        return new Object[] {windowElements, count, windowSize};
     }
 
     @Override
     public void restoreState(Object[] objects) {
-        //No need to maintain state
+        this.windowElements = (List<Double>) objects[0];
+        this.count = (Integer) objects[1];
+        this.windowSize = (Integer) objects[2];
     }
 
     /*
-    Calculate average for a given window
+        Calculate median for a given window
      */
-    private double calculate(){
-        avg = tot / window_size;
-        return avg;
+    private double calculate() {
+        double median;
+
+        //Create temp list, otherwise list sort will change the original order of the data
+        ArrayList<Double> tmp = new ArrayList<Double>(windowElements);
+
+        //Sort values
+        Collections.sort(tmp);
+
+        //Get median value
+        if (windowSize % 2 == 0) {
+            int index = windowSize / 2;
+            median = (tmp.get(index) + tmp.get(index - 1)) / 2;
+        } else {
+            median = tmp.get(windowSize / 2);
+        }
+        return median;
     }
 }

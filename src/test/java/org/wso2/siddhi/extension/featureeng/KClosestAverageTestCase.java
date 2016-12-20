@@ -1,14 +1,35 @@
+/*
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 package org.wso2.siddhi.extension.featureeng;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.wso2.siddhi.core.ExecutionPlanRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
 import org.wso2.siddhi.core.stream.input.InputHandler;
 import org.wso2.siddhi.core.stream.output.StreamCallback;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class MovingThresholdAverageAggregatorTestCase {
+
+public class KClosestAverageTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
     private double[] testVal = {
@@ -16,21 +37,21 @@ public class MovingThresholdAverageAggregatorTestCase {
             0.0,
             0.0,
             0.0,
-            3.321,
-            6.4556,
-            6.8068,
-            7.2468,
-            6.543,
-            3.178,
-            5.9974,
-            5.536,
-            5.2832,
-            5.2528,
-            5.6898,
-            5.9456,
-            6.1236,
-            6.4556,
-            6.7268
+            4.661,
+            7.86466667,
+            8.45,
+            8.05833333,
+            5.33933333,
+            5.29166667,
+            6.02366667,
+            6.456,
+            6.03466667,
+            5.55166667,
+            5.23966667,
+            6.461,
+            6.75766667,
+            7.311,
+            6.118
     };
 
     @Before
@@ -39,13 +60,16 @@ public class MovingThresholdAverageAggregatorTestCase {
         eventArrived = false;
     }
 
-    @org.junit.Test
-    public void testMovingThresholdAverageCalculation() throws InterruptedException {
+    @Test
+    public void testMovingKClosestAverageCalculation() throws InterruptedException {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
-        String query = "@info(name = 'query1') " + "from inputStream#window.length(5) " + "select featureeng:movtavg(5, 2.0, tt) as ans insert into outputStream";
-        ExecutionPlanRuntime executionPlanRuntime = siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
+        String query = "@info(name = 'query1') " + "from inputStream#window.length(5) " +
+                "select featureeng:movkavg(5, 3, tt) as ans insert into outputStream";
+
+        ExecutionPlanRuntime executionPlanRuntime =
+                siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
 
         executionPlanRuntime.addCallback("outputStream", new StreamCallback() {
             @Override
