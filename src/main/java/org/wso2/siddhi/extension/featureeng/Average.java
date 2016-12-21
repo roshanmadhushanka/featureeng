@@ -29,7 +29,7 @@ import org.wso2.siddhi.query.api.definition.Attribute;
  * featureeng:movavg(windowSize, data_stream); [INT, DOUBLE]
  * Input Condition(s): NULL
  * Return Type(s): DOUBLE
- * <p>
+ *
  * Calculate moving average
  * Moving Average = SUM (x) / WINDOW_SIZE; where x is an element inside the window
  */
