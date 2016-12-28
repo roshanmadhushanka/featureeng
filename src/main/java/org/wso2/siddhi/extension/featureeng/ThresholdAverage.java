@@ -26,7 +26,7 @@ import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggrega
 import org.wso2.siddhi.query.api.definition.Attribute;
 
 /*
-* featureeng:movtavg(windowSize, threshold, data_stream); [INT, DOUBLE, DOUBLE]
+* featureeng:tavg(windowSize, threshold, data_stream); [INT, DOUBLE, DOUBLE]
 * Input Condition(s): NULL
 * Return Type(s): DOUBLE
 *
@@ -58,7 +58,7 @@ public class ThresholdAverage extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) ((ConstantExpressionExecutor) attributeExpressionExecutors[0]).getValue();
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
@@ -67,7 +67,7 @@ public class ThresholdAverage extends AttributeAggregator {
         //Threshold currentValue
         if ((attributeExpressionExecutors[1] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[1].getReturnType() == Attribute.Type.DOUBLE)) {
-            this.threshold = (Double) attributeExpressionExecutors[1].execute(null);
+            this.threshold = (Double) ((ConstantExpressionExecutor) attributeExpressionExecutors[1]).getValue();
         } else {
             throw new IllegalArgumentException("Threshold currentValue should be " +
                     "(constatnt, type.DOUBLE)");
@@ -140,7 +140,7 @@ public class ThresholdAverage extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[] {total, threshold, currentValue, count, windowSize};
+        return new Object[]{total, threshold, currentValue, count, windowSize};
     }
 
     @Override
