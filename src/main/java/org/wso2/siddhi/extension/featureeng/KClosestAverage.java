@@ -24,13 +24,14 @@ import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 /*
-* featureeng:movkavg(windowSize, kClosest, data_stream); [INT, INT, DOUBLE]
+* featureeng:kavg(windowSize, kClosest, data_stream); [INT, INT, DOUBLE]
 * Input Condition(s): k_closet < windowSize
 * Return Type(s): DOUBLE
 *
@@ -59,7 +60,7 @@ public class KClosestAverage extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) ((ConstantExpressionExecutor) attributeExpressionExecutors[0]).getValue();
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
@@ -68,7 +69,7 @@ public class KClosestAverage extends AttributeAggregator {
         //K closest value
         if ((attributeExpressionExecutors[1] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[1].getReturnType() == Attribute.Type.INT)) {
-            this.kClosest = (Integer) attributeExpressionExecutors[1].execute(null);
+            this.kClosest = (Integer) ((ConstantExpressionExecutor) attributeExpressionExecutors[1]).getValue();
         } else {
             throw new IllegalArgumentException("Number of closest values should be " +
                     "(Constant, type.INT)");
@@ -144,7 +145,7 @@ public class KClosestAverage extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[] {windowElements, count, windowSize, kClosest};
+        return new Object[]{windowElements, count, windowSize, kClosest};
     }
 
     @Override
@@ -171,14 +172,14 @@ public class KClosestAverage extends AttributeAggregator {
         }
 
         //Convert keys in the sorted map to double
-        ArrayList<Double> key_array = new ArrayList<Double>();
+        ArrayList<Double> keyArray = new ArrayList<Double>();
         for (double key : sortedMap.keySet()) {
-            key_array.add(key);
+            keyArray.add(key);
         }
 
         //Calculate the total of k closest values
         for (int i = 0; i < kClosest; i++) {
-            tot += sortedMap.get(key_array.get(i));
+            tot += sortedMap.get(keyArray.get(i));
         }
 
         //Calculate the average
