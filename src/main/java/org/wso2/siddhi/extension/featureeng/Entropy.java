@@ -24,11 +24,12 @@ import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /*
-* featureeng:moventr(windowSize, no_of_bins, data_stream); [INT, INT, DOUBLE]
+* featureeng:entr(windowSize, no_of_bins, data_stream); [INT, INT, DOUBLE]
 * Input Condition(s): no_of_bins < windowSize
 * Return Type(s): DOUBLE
 *
@@ -41,7 +42,7 @@ public class Entropy extends AttributeAggregator {
     private List<Double> windowElements;    //Keep window elements
     private int count;                      //Window element counter
     private int windowSize;                 //Run length window
-    private int nbins;                      //Number of discrete levels
+    private int numberOfBins;               //Number of discrete levels
     private double binSize;                 //Gap between consecutive discrete levels
     private double min;                     //Local minimum for given window
     private double max;                     //Local maximum for given window
@@ -59,7 +60,7 @@ public class Entropy extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) ((ConstantExpressionExecutor) attributeExpressionExecutors[0]).getValue();
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
@@ -68,7 +69,7 @@ public class Entropy extends AttributeAggregator {
         //Number of bins
         if ((attributeExpressionExecutors[1] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[1].getReturnType() == Attribute.Type.INT)) {
-            this.nbins = (Integer) attributeExpressionExecutors[1].execute(null);
+            this.numberOfBins = (Integer) ((ConstantExpressionExecutor) attributeExpressionExecutors[1]).getValue();
         } else {
             throw new IllegalArgumentException("Number of bins should be (Constant, type.INT)");
         }
@@ -79,8 +80,8 @@ public class Entropy extends AttributeAggregator {
         }
 
         /* Input condition validation */
-        if (nbins >= windowSize) {
-            throw new OperationNotSupportedException("nbins value should be less than window size");
+        if (numberOfBins >= windowSize) {
+            throw new OperationNotSupportedException("numberOfBins value should be less than window size");
         }
 
         //Initialize variables
@@ -147,7 +148,7 @@ public class Entropy extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[] {windowElements, count, windowSize, nbins, binSize, min, max};
+        return new Object[]{windowElements, count, windowSize, numberOfBins, binSize, min, max};
     }
 
     @Override
@@ -155,7 +156,7 @@ public class Entropy extends AttributeAggregator {
         this.windowElements = (List<Double>) objects[0];
         this.count = (Integer) objects[1];
         this.windowSize = (Integer) objects[2];
-        this.nbins = (Integer) objects[3];
+        this.numberOfBins = (Integer) objects[3];
         this.binSize = (Double) objects[4];
         this.min = (Double) objects[5];
         this.max = (Double) objects[6];
@@ -165,7 +166,6 @@ public class Entropy extends AttributeAggregator {
     Calculate entropy sum for a given window
      */
     private double calculate() {
-        //Initialize variables
         max = Double.MIN_VALUE;
         min = Double.MAX_VALUE;
 
@@ -178,25 +178,25 @@ public class Entropy extends AttributeAggregator {
         }
 
         //Calculate width of the class
-        binSize = (max - min) / nbins;
+        binSize = (max - min) / numberOfBins;
 
         //Generate histogram
-        double[] result = new double[nbins];
+        double[] result = new double[numberOfBins];
         int binIndex;
         for (double num : windowElements) {
             binIndex = (int) ((num - min) / binSize);
             if (binIndex < 0)
                 result[0] += 1;
-            else if (binIndex >= nbins)
-                result[nbins - 1] += 1;
+            else if (binIndex >= numberOfBins)
+                result[numberOfBins - 1] += 1;
             else
                 result[binIndex] += 1;
         }
 
         //Calculate entropy sum
-        double entr = 0.0;
+        double entropySum = 0.0;
         double val;
-        for (int i = 0; i < nbins; i++) {
+        for (int i = 0; i < numberOfBins; i++) {
             val = result[i] / windowSize;
             if (val > 0.0)
                 val = -1 * val * Math.log(val);
@@ -204,8 +204,9 @@ public class Entropy extends AttributeAggregator {
                 val = 0.0;
             else
                 val = -1 * Double.MAX_VALUE;
-            entr += val;
+
+            entropySum += val;
         }
-        return entr;
+        return entropySum;
     }
 }
