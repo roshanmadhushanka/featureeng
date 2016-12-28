@@ -26,10 +26,10 @@ import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggrega
 import org.wso2.siddhi.query.api.definition.Attribute;
 
 /**
- * featureeng:movavg(windowSize, data_stream); [INT, DOUBLE]
+ * featureeng:avg(windowSize, data_stream); [INT, DOUBLE]
  * Input Condition(s): NULL
  * Return Type(s): DOUBLE
- *
+ * <p>
  * Calculate moving average
  * Moving Average = SUM (x) / WINDOW_SIZE; where x is an element inside the window
  */
@@ -38,7 +38,7 @@ public class Average extends AttributeAggregator {
     private static Attribute.Type type = Attribute.Type.DOUBLE;
     private double total;               //Window total
     private int count;                  //Window element counter
-    private int windowSize = 0;        //Run length window
+    private int windowSize = 0;         //Run length window
 
     @Override
     protected void init(ExpressionExecutor[] expressionExecutors,
@@ -53,7 +53,7 @@ public class Average extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) ((ConstantExpressionExecutor) attributeExpressionExecutors[0]).getValue();
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
@@ -126,7 +126,7 @@ public class Average extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[] {total, count, windowSize};
+        return new Object[]{total, count, windowSize};
     }
 
     @Override
