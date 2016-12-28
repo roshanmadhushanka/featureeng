@@ -30,6 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ProbabilityTestCase {
     private AtomicInteger count = new AtomicInteger(0);
     private volatile boolean eventArrived;
+
     private double[] testVal = {
             0.0,
             0.0,
@@ -59,12 +60,12 @@ public class ProbabilityTestCase {
     }
 
     @org.junit.Test
-    public void testMovingProbabilityCalculation() throws InterruptedException {
+    public void testProbabilityCalculation() throws InterruptedException {
         SiddhiManager siddhiManager = new SiddhiManager();
 
         String inStreamDefinition = "define stream inputStream (tt double);";
         String query = "@info(name = 'query1') " + "from inputStream#window.length(10) " +
-                "select featureeng:movprob(10, 5, tt) as ans insert into outputStream";
+                "select featureeng:prob(10, 5, tt) as ans insert into outputStream";
 
         ExecutionPlanRuntime executionPlanRuntime =
                 siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
@@ -104,4 +105,36 @@ public class ProbabilityTestCase {
 
         executionPlanRuntime.shutdown();
     }
+
+    @org.junit.Test(expected = org.wso2.siddhi.query.api.exception.ExecutionPlanValidationException.class)
+    public void testInputCondition() {
+        SiddhiManager siddhiManager = new SiddhiManager();
+
+        String inStreamDefinition = "define stream inputStream (tt double);";
+        String query = "@info(name = 'query1') " + "from inputStream#window.length(10) " +
+                "select featureeng:prob(5, 10, tt) as ans insert into outputStream";
+
+        ExecutionPlanRuntime executionPlanRuntime =
+                siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
+
+        InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
+        executionPlanRuntime.start();
+    }
+
+    @org.junit.Test(expected = org.wso2.siddhi.query.api.exception.ExecutionPlanValidationException.class)
+    public void testDataType() {
+        SiddhiManager siddhiManager = new SiddhiManager();
+
+        String inStreamDefinition = "define stream inputStream (tt string);";
+        String query = "@info(name = 'query1') " + "from inputStream#window.length(10) " +
+                "select featureeng:prob(10, 5, tt) as ans insert into outputStream";
+
+        ExecutionPlanRuntime executionPlanRuntime =
+                siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
+
+        InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
+        executionPlanRuntime.start();
+    }
+
+
 }

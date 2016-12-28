@@ -64,7 +64,7 @@ public class ThresholdAverageTestCase {
 
         String inStreamDefinition = "define stream inputStream (tt double);";
         String query = "@info(name = 'query1') " + "from inputStream#window.length(5) " +
-                "select featureeng:movtavg(5, 2.0, tt) as ans insert into outputStream";
+                "select featureeng:tavg(5, 2.0, tt) as ans insert into outputStream";
 
         ExecutionPlanRuntime executionPlanRuntime =
                 siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);

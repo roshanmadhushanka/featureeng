@@ -64,7 +64,7 @@ public class MedianCenteredAverageTestCase {
 
         String inStreamDefinition = "define stream inputStream (tt double);";
         String query = "@info(name = 'query1') " + "from inputStream#window.length(5) " +
-                "select featureeng:movmcavg(5, 1, tt) as ans insert into outputStream";
+                "select featureeng:mcavg(5, 1, tt) as ans insert into outputStream";
 
         ExecutionPlanRuntime executionPlanRuntime =
                 siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);

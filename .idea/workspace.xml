@@ -1,56 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa72f6b6-81ae-453d-ab33-87893dabf243" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Average.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Entropy.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/KClosestAverage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingMedianAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Median.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingProbabilityAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Probability.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/StandardDeviation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/ThresholdAverage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingVarianceAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Variance.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingAverageAggregatorTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/AverageTestCase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregatorTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/EntropyTestCase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregatorTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/KClosestAverageTestCase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingMedianAggregatorTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianTestCase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregatorTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverageTestCase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingProbabilityAggregatorTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ProbabilityTestCase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregatorTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/StandardDeviationTestCase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregatorTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ThresholdAverageTestCase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingVarianceAggregatorTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/VarianceTestCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingMedianAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingMedianAggregator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingProbabilityAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingProbabilityAggregator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingVarianceAggregator.class" afterPath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingVarianceAggregator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/featureeng-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/featureeng-1.0-SNAPSHOT.jar" />
+    <list default="true" id="aa72f6b6-81ae-453d-ab33-87893dabf243" name="Default" comment="K Closest Average clean has completed">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Test.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingMedianAggregator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingProbabilityAggregator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/wso2/siddhi/extension/featureeng/MovingVarianceAggregator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingAverageAggregatorTestCase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingAverageAggregatorTestCase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregatorTestCase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregatorTestCase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregatorTestCase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingKClosestAverageAggregatorTestCase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingMedianAggregatorTestCase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingMedianAggregatorTestCase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregatorTestCase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingMedianCenteredAverageAggregatorTestCase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingProbabilityAggregatorTestCase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingProbabilityAggregatorTestCase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregatorTestCase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingStandardDeviationAggregatorTestCase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregatorTestCase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregatorTestCase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingVarianceAggregatorTestCase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingVarianceAggregatorTestCase.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/featureeng.siddhiext" afterPath="$PROJECT_DIR$/src/main/resources/featureeng.siddhiext" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingAverageAggregatorTestCase.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingAverageAggregatorTestCase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingEntropyAggregatorTestCase.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingEntropyAggregatorTestCase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingKClosestAverageAggregatorTestCase.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingKClosestAverageAggregatorTestCase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingMedianAggregatorTestCase.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingMedianAggregatorTestCase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingMedianCenteredAverageAggregatorTestCase.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingMedianCenteredAverageAggregatorTestCase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregatorTestCase.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregatorTestCase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingStandardDeviationAggregatorTestCase.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingStandardDeviationAggregatorTestCase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingThresholdAverageAggregatorTestCase.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingThresholdAverageAggregatorTestCase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingVarianceAggregatorTestCase.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingVarianceAggregatorTestCase.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingAverageAggregatorTestCase.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingAverageAggregatorTestCase.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingEntropyAggregatorTestCase.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingEntropyAggregatorTestCase.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingKClosestAverageAggregatorTestCase.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingKClosestAverageAggregatorTestCase.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingMedianAggregatorTestCase.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingMedianAggregatorTestCase.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingMedianCenteredAverageAggregatorTestCase.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingMedianCenteredAverageAggregatorTestCase.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregatorTestCase.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingProbabilityAggregatorTestCase.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingStandardDeviationAggregatorTestCase.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingStandardDeviationAggregatorTestCase.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingThresholdAverageAggregatorTestCase.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingThresholdAverageAggregatorTestCase.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingVarianceAggregatorTestCase.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingVarianceAggregatorTestCase.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/AverageTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/AverageTestCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/EntropyTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/EntropyTestCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/KClosestAverageTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/KClosestAverageTestCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverageTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverageTestCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianTestCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ProbabilityTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ProbabilityTestCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/StandardDeviationTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/StandardDeviationTestCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ThresholdAverageTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ThresholdAverageTestCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/VarianceTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/VarianceTestCase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/featureeng.siddhiext" afterPath="$PROJECT_DIR$/target/classes/featureeng.siddhiext" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wso2-codestyle.xml" afterPath="$PROJECT_DIR$/wso2-codestyle.xml" />
     </list>
     <ignored path="featureeng.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,42 +65,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Variance.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Variance.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1860">
-              <caret line="144" column="47" selection-start-line="144" selection-start-column="47" selection-end-line="144" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#4899#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Average.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Average.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="135" column="47" selection-start-line="135" selection-start-column="47" selection-end-line="135" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#4422#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#3983#3984#0" expanded="true" />
-                <element signature="e#4045#4046#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="578">
+              <caret line="55" column="113" lean-forward="false" selection-start-line="55" selection-start-column="113" selection-end-line="55" selection-end-column="113" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Entropy.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Entropy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Entropy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="161" column="39" selection-start-line="161" selection-start-column="39" selection-end-line="161" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="799">
+              <caret line="71" column="115" lean-forward="false" selection-start-line="71" selection-start-column="115" selection-end-line="71" selection-end-column="115" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,11 +88,9 @@
       <file leaf-file-name="KClosestAverage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/KClosestAverage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="706">
-              <caret line="155" column="45" selection-start-line="155" selection-start-column="45" selection-end-line="155" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1972">
+              <caret line="152" column="30" lean-forward="false" selection-start-line="152" selection-start-column="30" selection-end-line="152" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,13 +98,9 @@
       <file leaf-file-name="Median.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Median.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="138" column="47" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4227#4228#0" expanded="true" />
-                <element signature="e#4298#4299#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="595">
+              <caret line="60" column="113" lean-forward="false" selection-start-line="60" selection-start-column="113" selection-end-line="60" selection-end-column="113" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,11 +108,9 @@
       <file leaf-file-name="MedianCenteredAverage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="148" column="45" selection-start-line="148" selection-start-column="45" selection-end-line="148" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="731">
+              <caret line="68" column="111" lean-forward="false" selection-start-line="68" selection-start-column="111" selection-end-line="68" selection-end-column="111" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,23 +118,10 @@
       <file leaf-file-name="Probability.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Probability.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="164" column="39" selection-start-line="164" selection-start-column="39" selection-end-line="164" selection-end-column="39" />
+            <state relative-caret-position="221">
+              <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntropyTestCase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/EntropyTestCase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-96">
-              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#3681#0" expanded="true" />
-                <element signature="imports" expanded="true" />
+                <marker date="1482914903327" expanded="true" signature="9034:9086" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -178,11 +130,9 @@
       <file leaf-file-name="StandardDeviation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/StandardDeviation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="143" column="47" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="629">
+              <caret line="61" column="113" lean-forward="false" selection-start-line="61" selection-start-column="113" selection-end-line="61" selection-end-column="113" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -190,11 +140,29 @@
       <file leaf-file-name="ThresholdAverage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/ThresholdAverage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="151" column="47" selection-start-line="151" selection-start-column="47" selection-end-line="151" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="816">
+              <caret line="69" column="111" lean-forward="false" selection-start-line="69" selection-start-column="111" selection-end-line="69" selection-end-column="111" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Variance.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Variance.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="54" column="73" lean-forward="false" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProbabilityTestCase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ProbabilityTestCase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="83" column="34" lean-forward="false" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -224,7 +192,6 @@
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/TestAggregatorTestCase.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Test.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/TestTestCase.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingThresholdAverage.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageTestCase.java" />
@@ -246,50 +213,40 @@
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingThresholdAverageAggregatorTestCase.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MovingVarianceAggregatorTestCase.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MovingAverageAggregator.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/featureeng.siddhiext" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/AverageTestCase.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/EntropyTestCase.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/KClosestAverageTestCase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverageTestCase.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianTestCase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ProbabilityTestCase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverageTestCase.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/StandardDeviationTestCase.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ThresholdAverageTestCase.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/featureeng.siddhiext" />
         <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/VarianceTestCase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Probability.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ProbabilityTestCase.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Average.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Entropy.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/KClosestAverage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Median.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Probability.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/StandardDeviation.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/ThresholdAverage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Variance.java" />
       </list>
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
-    </option>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1855" />
-    <option name="height" value="1056" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -306,14 +263,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="featureeng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="featureeng" />
@@ -400,21 +354,22 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/SemiSupervised" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AverageTestCase">
+  <component name="RunManager" selected="JUnit.ProbabilityTestCase">
     <configuration default="false" name="ProbabilityTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -427,32 +382,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="org.wso2.siddhi.extension.featureeng" />
       <option name="MAIN_CLASS_NAME" value="org.wso2.siddhi.extension.featureeng.ProbabilityTestCase" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="StandardDeviationTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.wso2.siddhi.extension.featureeng.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="featureeng" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.wso2.siddhi.extension.featureeng" />
-      <option name="MAIN_CLASS_NAME" value="org.wso2.siddhi.extension.featureeng.StandardDeviationTestCase" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -519,23 +448,23 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="AverageTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="ProbabilityTestCase.testMovingProbabilityCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="org.wso2.siddhi.extension.featureeng.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="featureeng" />
+      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="org.wso2.siddhi.extension.featureeng" />
-      <option name="MAIN_CLASS_NAME" value="org.wso2.siddhi.extension.featureeng.AverageTestCase" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="org.wso2.siddhi.extension.featureeng.ProbabilityTestCase" />
+      <option name="METHOD_NAME" value="testMovingProbabilityCalculation" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -545,13 +474,34 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="false" name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.wso2.siddhi.extension.featureeng.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.wso2.siddhi.extension.featureeng.Test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="featureeng" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
@@ -561,7 +511,7 @@
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="PREFERRED_AVD" value="" />
       <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="DEBUGGER_TYPE" value="Java" />
@@ -569,7 +519,11 @@
       <option name="PREFERRED_AVD" value="" />
       <Java />
       <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
         <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -594,7 +548,11 @@
       <option name="PREFERRED_AVD" value="" />
       <Java />
       <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
         <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
       </Profilers>
       <method />
     </configuration>
@@ -621,6 +579,136 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -637,6 +725,15 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -649,27 +746,6 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -698,6 +774,15 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
@@ -733,6 +818,12 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -761,50 +852,68 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
       <envs />
-      <properties />
-      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.ProbabilityTestCase" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.StandardDeviationTestCase" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ThresholdAverageTestCase" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.VarianceTestCase" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AverageTestCase" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ThresholdAverageTestCase" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.VarianceTestCase" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ProbabilityTestCase.testMovingProbabilityCalculation" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AverageTestCase" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.VarianceTestCase" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ThresholdAverageTestCase" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.StandardDeviationTestCase" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ProbabilityTestCase" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ProbabilityTestCase" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Test" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ProbabilityTestCase.testMovingProbabilityCalculation" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.VarianceTestCase" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ThresholdAverageTestCase" />
       </list>
     </recent_temporary>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -816,6 +925,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1478762764101</updated>
+      <workItem from="1482907933576" duration="154000" />
+      <workItem from="1482908201998" duration="3003000" />
+      <workItem from="1482933522151" duration="218000" />
     </task>
     <task id="LOCAL-00001" summary="MovingAverageAggregator completed">
       <created>1478917135386</created>
@@ -873,71 +985,145 @@
       <option name="project" value="LOCAL" />
       <updated>1481694357350</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Average clean has completed">
+      <created>1482914937907</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1482914937907</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Entropy clean has completed">
+      <created>1482915670544</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1482915670544</updated>
+    </task>
+    <task id="LOCAL-00011" summary="K Closest Average clean has completed">
+      <created>1482915791764</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1482915791764</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Median clean has completed">
+      <created>1482915835678</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1482915835678</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Median Centered Average clean has completed">
+      <created>1482916351099</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1482916351099</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Probability clean has completed">
+      <created>1482916436509</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1482916436509</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Standard Deviation clean has completed">
+      <created>1482916461427</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1482916461427</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Threshold Average clean has completed">
+      <created>1482916520526</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1482916520526</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Variance clean has completed">
+      <created>1482916564587</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1482916564587</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MovingAverageAggregatorTestCase - 2016.12.20 at 11h 06m 42s.xml">
-      <configuration name="MovingAverageAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.21 at 21h 45m 35s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovingAverageAggregatorTestCase - 2016.12.20 at 11h 07m 46s.xml">
-      <configuration name="MovingAverageAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.21 at 21h 46m 23s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovingAverageAggregatorTestCase - 2016.12.20 at 13h 24m 25s.xml">
-      <configuration name="MovingAverageAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.21 at 21h 48m 34s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovingKClosestAverageAggregatorTestCase - 2016.12.20 at 11h 10m 38s.xml">
-      <configuration name="MovingKClosestAverageAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.21 at 21h 51m 00s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovingMedianAggregatorTestCase - 2016.12.20 at 11h 11m 20s.xml">
-      <configuration name="MovingMedianAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.22 at 07h 51m 05s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovingMedianCenteredAverageAggregatorTestCase - 2016.12.20 at 11h 12m 14s.xml">
-      <configuration name="MovingMedianCenteredAverageAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.22 at 08h 04m 37s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovingProbabilityAggregatorTestCase - 2016.12.20 at 11h 15m 33s.xml">
-      <configuration name="MovingProbabilityAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.22 at 08h 06m 45s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovingStandardDeviationAggregatorTestCase - 2016.12.20 at 11h 17m 25s.xml">
-      <configuration name="MovingStandardDeviationAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.22 at 08h 08m 34s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovingThresholdAverageAggregatorTestCase - 2016.12.20 at 11h 18m 33s.xml">
-      <configuration name="MovingThresholdAverageAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.22 at 08h 09m 04s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovingVarianceAggregatorTestCase - 2016.12.20 at 11h 19m 46s.xml">
-      <configuration name="MovingVarianceAggregatorTestCase" configurationId="JUnit" />
+    <history-entry file="ProbabilityTestCase - 2016.12.22 at 08h 40m 06s.xml">
+      <configuration name="ProbabilityTestCase" configurationId="JUnit" />
     </history-entry>
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3375000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1691023" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.348643" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23695198" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44885176" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23695198" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3559978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21742313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39979124" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39979124" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16876972" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -959,11 +1145,20 @@
     <MESSAGE value="Upto moving median centered average clean complete" />
     <MESSAGE value="Ready to code review" />
     <MESSAGE value="Cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning" />
+    <MESSAGE value="Average clean has completed" />
+    <MESSAGE value="Entropy clean has completed" />
+    <MESSAGE value="K Closest Average clean has completed" />
+    <MESSAGE value="Median clean has completed" />
+    <MESSAGE value="Median Centered Average clean has completed" />
+    <MESSAGE value="Probability clean has completed" />
+    <MESSAGE value="Standard Deviation clean has completed" />
+    <MESSAGE value="Threshold Average clean has completed" />
+    <MESSAGE value="Variance clean has completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Variance clean has completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -975,71 +1170,59 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/AverageTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2010">
-          <caret line="142" column="12" selection-start-line="16" selection-start-column="4" selection-end-line="142" selection-end-column="12" />
+          <caret line="142" column="12" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="142" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/featureeng.siddhiext">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="56" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
-          <folding />
+          <caret line="1" column="56" lean-forward="false" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Average.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
-          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#4422#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3983#3984#0" expanded="true" />
-            <element signature="e#4045#4046#0" expanded="true" />
-          </folding>
+          <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Median.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4227#4228#0" expanded="true" />
-            <element signature="e#4298#4299#0" expanded="true" />
-          </folding>
+          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/StandardDeviation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+          <caret line="5" column="46" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/KClosestAverage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="5" column="44" lean-forward="false" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1048,42 +1231,36 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/AverageTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
-          <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+          <caret line="52" column="46" lean-forward="false" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
-          <caret line="65" column="44" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
+          <caret line="65" column="44" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/featureeng.siddhiext">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="58" selection-start-line="0" selection-start-column="58" selection-end-line="0" selection-end-column="58" />
-          <folding />
+          <caret line="0" column="58" lean-forward="false" selection-start-line="0" selection-start-column="58" selection-end-line="0" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Average.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1185">
-          <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#4422#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3983#3984#0" expanded="true" />
-            <element signature="e#4045#4046#0" expanded="true" />
-          </folding>
+          <caret line="100" column="9" lean-forward="false" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,136 +1269,119 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
-          <caret line="65" column="44" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
+          <caret line="65" column="44" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/featureeng.siddhiext">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Average.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#4422#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3983#3984#0" expanded="true" />
-            <element signature="e#4045#4046#0" expanded="true" />
-          </folding>
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/TestAggregatorTestCase.java" />
-    <entry file="jar:///usr/local/java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5865">
-          <caret line="428" column="0" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///usr/local/java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/TestAggregator.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Test.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/TestTestCase.java" />
     <entry file="file://$PROJECT_DIR$/target/surefire-reports/org.wso2.siddhi.extension.featureeng.MovingAverageAggregatorTestCase.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/target/surefire-reports/TEST-org.wso2.siddhi.extension.featureeng.MovingAverageAggregatorTestCase.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregatorTestCase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#3355#0" expanded="true" />
-            <element signature="e#1616#1912#0" expanded="true" />
-            <element signature="e#1911#1912#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingAverageAggregatorTestCase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#3324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingEntropyAggregatorTestCase.class" />
+    <entry file="file://$PROJECT_DIR$/target/test-classes/org/wso2/siddhi/extension/featureeng/MovingAverageAggregatorTestCase.class" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="671">
-          <caret line="72" column="21" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
+          <caret line="72" column="21" lean-forward="false" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/KClosestAverageTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="68" column="35" lean-forward="false" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverageTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="66" column="35" lean-forward="false" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ThresholdAverageTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="66" column="35" lean-forward="false" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/featureeng.siddhiext">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
-          <folding />
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/AverageTestCase.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/VarianceTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="645">
+          <caret line="66" column="35" lean-forward="false" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/EntropyTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="66" column="35" lean-forward="false" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
           <folding>
-            <element signature="e#0#3665#0" expanded="false" />
+            <element signature="e#0#3678#0" expanded="false" />
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/KClosestAverageTestCase.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/AverageTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="748">
+          <caret line="68" column="35" lean-forward="false" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
           <folding>
-            <element signature="e#0#3714#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverageTestCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#3724#0" expanded="false" />
+            <element signature="e#0#3662#0" expanded="false" />
             <element signature="imports" expanded="false" />
           </folding>
         </state>
@@ -1229,21 +1389,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/MedianTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="731">
+          <caret line="67" column="35" lean-forward="false" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
           <folding>
-            <element signature="e#0#3647#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ProbabilityTestCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#3621#0" expanded="false" />
+            <element signature="e#0#3644#0" expanded="false" />
             <element signature="imports" expanded="false" />
           </folding>
         </state>
@@ -1251,138 +1400,102 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/StandardDeviationTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="748">
+          <caret line="67" column="35" lean-forward="false" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
           <folding>
-            <element signature="e#0#3730#0" expanded="false" />
+            <element signature="e#0#3727#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ThresholdAverageTestCase.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#3671#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="52" lean-forward="false" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/VarianceTestCase.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/ProbabilityTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#3720#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Median.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="138" column="47" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4227#4228#0" expanded="true" />
-            <element signature="e#4298#4299#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Probability.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="164" column="39" selection-start-line="164" selection-start-column="39" selection-end-line="164" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="148" column="45" selection-start-line="148" selection-start-column="45" selection-end-line="148" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1020">
+          <caret line="83" column="34" lean-forward="false" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Average.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="135" column="47" selection-start-line="135" selection-start-column="47" selection-end-line="135" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#4422#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3983#3984#0" expanded="true" />
-            <element signature="e#4045#4046#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="578">
+          <caret line="55" column="113" lean-forward="false" selection-start-line="55" selection-start-column="113" selection-end-line="55" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Entropy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="71" column="115" lean-forward="false" selection-start-line="71" selection-start-column="115" selection-end-line="71" selection-end-column="115" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/KClosestAverage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="155" column="45" selection-start-line="155" selection-start-column="45" selection-end-line="155" selection-end-column="45" />
+        <state relative-caret-position="1972">
+          <caret line="152" column="30" lean-forward="false" selection-start-line="152" selection-start-column="30" selection-end-line="152" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Median.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="60" column="113" lean-forward="false" selection-start-line="60" selection-start-column="113" selection-end-line="60" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/MedianCenteredAverage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="68" column="111" lean-forward="false" selection-start-line="68" selection-start-column="111" selection-end-line="68" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Probability.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1482914903327" expanded="true" signature="9034:9086" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/StandardDeviation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="143" column="47" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="629">
+          <caret line="61" column="113" lean-forward="false" selection-start-line="61" selection-start-column="113" selection-end-line="61" selection-end-column="113" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/ThresholdAverage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="151" column="47" selection-start-line="151" selection-start-column="47" selection-end-line="151" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="816">
+          <caret line="69" column="111" lean-forward="false" selection-start-line="69" selection-start-column="111" selection-end-line="69" selection-end-column="111" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Variance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="144" column="47" selection-start-line="144" selection-start-column="47" selection-end-line="144" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#4899#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/wso2/siddhi/extension/featureeng/EntropyTestCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#3681#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/siddhi/extension/featureeng/Entropy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="161" column="39" selection-start-line="161" selection-start-column="39" selection-end-line="161" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="217">
+          <caret line="54" column="73" lean-forward="false" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -64,7 +64,7 @@ public class EntropyTestCase {
 
         String inStreamDefinition = "define stream inputStream (tt double);";
         String query = "@info(name = 'query1') " + "from inputStream#window.length(10) " +
-                "select featureeng:moventr(10, 5, tt) as ans insert into outputStream";
+                "select featureeng:entr(10, 5, tt) as ans insert into outputStream";
 
         ExecutionPlanRuntime executionPlanRuntime =
                 siddhiManager.createExecutionPlanRuntime(inStreamDefinition + query);
