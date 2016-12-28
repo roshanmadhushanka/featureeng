@@ -24,11 +24,12 @@ import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /*
-* featureeng:movstd(windowSize, data_stream); [INT, DOUBLE]
+* featureeng:std(windowSize, data_stream); [INT, DOUBLE]
 * Input Condition(s): NULL
 * Return Type(s): DOUBLE
 *
@@ -58,7 +59,7 @@ public class StandardDeviation extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) ((ConstantExpressionExecutor) attributeExpressionExecutors[0]).getValue();
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
@@ -132,7 +133,7 @@ public class StandardDeviation extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[] {windowElements, total, count, windowSize};
+        return new Object[]{windowElements, total, count, windowSize};
     }
 
     @Override
