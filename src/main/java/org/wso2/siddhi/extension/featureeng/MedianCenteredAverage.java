@@ -24,12 +24,13 @@ import org.wso2.siddhi.core.executor.ConstantExpressionExecutor;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.query.selector.attribute.aggregator.AttributeAggregator;
 import org.wso2.siddhi.query.api.definition.Attribute;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /*
-* featureeng:movmcavg(windowSize, boundary, data_stream); [INT, INT, DOUBLE]
+* featureeng:mcavg(windowSize, boundary, data_stream); [INT, INT, DOUBLE]
 * Input Condition(s): 2 * boundary < windowSize
 * Return Type(s): DOUBLE
 *
@@ -56,7 +57,7 @@ public class MedianCenteredAverage extends AttributeAggregator {
         //Window size
         if ((attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[0].getReturnType() == Attribute.Type.INT)) {
-            this.windowSize = (Integer) attributeExpressionExecutors[0].execute(null);
+            this.windowSize = (Integer) ((ConstantExpressionExecutor) attributeExpressionExecutors[0]).getValue();
         } else {
             throw new IllegalArgumentException("First parameter should be the window size " +
                     "(Constant, type.INT)");
@@ -65,7 +66,7 @@ public class MedianCenteredAverage extends AttributeAggregator {
         //Limit
         if ((attributeExpressionExecutors[1] instanceof ConstantExpressionExecutor) &&
                 (attributeExpressionExecutors[1].getReturnType() == Attribute.Type.INT)) {
-            this.boundary = (Integer) attributeExpressionExecutors[1].execute(null);
+            this.boundary = (Integer) ((ConstantExpressionExecutor) attributeExpressionExecutors[1]).getValue();
         } else {
             throw new IllegalArgumentException("Boundary value should be (Constant, type.INT");
         }
@@ -141,7 +142,7 @@ public class MedianCenteredAverage extends AttributeAggregator {
 
     @Override
     public Object[] currentState() {
-        return new Object[] {windowElements, count, windowSize, boundary};
+        return new Object[]{windowElements, count, windowSize, boundary};
     }
 
     @Override
